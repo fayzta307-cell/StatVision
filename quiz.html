@@ -3,21 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StatVision | الاختبار التفاعلي</title>
+  <title>StatVision | الاختبار النهائي</title>
   
-  <!-- Bootstrap 5 RTL CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
-  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- ملف التنسيقات الخاص بك -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- شريط تقدم التمرير -->
   <div id="progress-bar"></div>
 
-  <!-- القائمة العلوية Navbar -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html"><i class="fa-solid fa-chart-line me-2"></i>StatVision</a>
@@ -26,132 +22,90 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
-          <li class="nav-item"><a class="nav-link" href="ai.html">الذكاء الاصطناعي</a></li>
-          <li class="nav-item"><a class="nav-link" href="projects.html">المشاريع</a></li>
-          <li class="nav-item"><a class="nav-link active" href="quiz.html">الاختبار النهائي</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">علم الإحصاء والرسومات</a></li>
+          <li class="nav-item"><a class="nav-link" href="ai.html">الذكاء الاصطناعي والبرامج</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">المشاريع والتطبيقات</a></li>
+          <li class="nav-item"><a class="nav-link active text-primary fw-bold" href="quiz.html">الاختبار النهائي</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- الهيرو -->
+  <!-- Hero Section -->
   <section class="hero-section text-center">
     <div class="container">
-      <h1 class="hero-title mb-3">الاختبار التفاعلي الشامل</h1>
-      <p class="hero-subtitle mb-4">اختبري حصيلتك المعرفية في مفاهيم الإحصاء، أدوات التحليل، وتقاطعها مع الذكاء الاصطناعي</p>
+      <h1 class="hero-title mb-3">الاختبار النهائي لقياس المعرفة</h1>
+      <p class="text-muted mb-4">اختبر حصيلتك الإحصائية والتقنية وحمل شهادة إتمام الرحلة التعليمية في StatVision</p>
     </div>
   </section>
 
-  <!-- قسم الاختبار -->
+  <!-- Quiz Box -->
   <section class="py-5">
-    <div class="container py-3" style="max-width: 800px;">
-      
-      <div class="quiz-container shadow-sm p-4 bg-white rounded-4 border">
-        <form id="quizForm">
-          
-          <!-- السؤال الأول -->
-          <div class="mb-4 pb-3 border-bottom">
-            <h5 class="fw-bold mb-3"><span class="badge bg-primary me-2">1</span> ما هي الأداة الإحصائية التفاعلية المسؤولة عن مراقبة انحرافات العمليات الإدارية والصناعية بمرور الوقت؟</h5>
-            <div class="form-check my-2">
-              <input class="form-check-input" type="radio" name="q1" id="q1a" value="a">
-              <label class="form-check-label" for="q1a">مخططات ضبط الجودة (Control Charts)</label>
-            </div>
-            <div class="form-check my-2">
-              <input class="form-check-input" type="radio" name="q1" id="q1b" value="b">
-              <label class="form-check-label" for="q1b">الهرم السكاني التفاعلي (Population Pyramid)</label>
-            </div>
-            <div class="form-check my-2">
-              <input class="form-check-input" type="radio" name="q1" id="q1c" value="c">
-              <label class="form-check-label" for="q1c">معامل ارتباط بيرسون</label>
-            </div>
-          </div>
+    <div class="container max-w-800">
+      <div class="custom-card p-4" id="quiz-box">
+        <h4 class="fw-bold mb-4 text-center">أسئلة قياس المفاهيم</h4>
 
-          <!-- السؤال الثاني -->
-          <div class="mb-4 pb-3 border-bottom">
-            <h5 class="fw-bold mb-3"><span class="badge bg-primary me-2">2</span> في لغة R، ما هو الاختبار غير المعلمي (Non-parametric Test) المستخدم لمقارنة التشتت بين عينتين؟</h5>
-            <div class="form-check my-2">
-              <input class="form-check-input" type="radio" name="q2" id="q2a" value="a">
-              <label class="form-check-label" for="q2a">اختبار t للعينات المستقلة (Student's t-test)</label>
-            </div>
-            <div class="form-check my-2">
-              <input class="form-check-input" type="radio" name="q2" id="q2b" value="b">
-              <label class="form-check-label" for="q2b">اختبار أنساري-برادلي (Ansari-Bradley Test)</label>
-            </div>
-            <div class="form-check my-2">
-              <input class="form-check-input" type="radio" name="q2" id="q2c" value="c">
-              <label class="form-check-label" for="q2c">تحليل التباين الأحادي (ANOVA)</label>
-            </div>
-          </div>
+        <!-- Q1 -->
+        <div class="mb-4">
+          <p class="fw-bold">1. أي مما يلي يمثل القيمة الأكثر تكراراً في البيانات؟</p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="0"><label class="form-check-label">المتوسط الحسابي</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="1"><label class="form-check-label">المنوال ✅</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="0"><label class="form-check-label">الوسيط</label></div>
+        </div>
 
-          <!-- السؤال الثالث -->
-          <div class="mb-4 pb-3 border-bottom">
-            <h5 class="fw-bold mb-3"><span class="badge bg-primary me-2">3</span> كيف يساهم الذكاء الاصطناعي التوليدي في دعم المحلل الإحصائي؟</h5>
-            <div class="form-check my-2">
-              <input class="form-check-input" type="radio" name="q3" id="q3a" value="a">
-              <label class="form-check-label" for="q3a">استبدال التفكير الإحصائي والفرضيات تماماً</label>
-            </div>
-            <div class="form-check my-2">
-              <input class="form-check-input" type="radio" name="q3" id="q3b" value="b">
-              <label class="form-check-label" for="q3b">توليد وتسريع كتابة الأكواد، وتلخيص النماذج المعقدة</label>
-            </div>
-            <div class="form-check my-2">
-              <input class="form-check-input" type="radio" name="q3" id="q3c" value="c">
-              <label class="form-check-label" for="q3c">إلغاء الحاجة لجمع البيانات الميدانية</label>
-            </div>
-          </div>
+        <!-- Q2 -->
+        <div class="mb-4">
+          <p class="fw-bold">2. أي رسم بياني يُستخدم لمتابعة البيانات والتغيرات عبر الزمن؟</p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="0"><label class="form-check-label">المحتوى الدائري</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="1"><label class="form-check-label">الرسم الخطي ✅</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="0"><label class="form-check-label">المدرج التكراري</label></div>
+        </div>
 
-          <button type="button" onclick="calculateScore()" class="btn btn-primary btn-lg rounded-pill w-100 mt-3">عرض النتيجة <i class="fa-solid fa-check-circle ms-2"></i></button>
-        </form>
+        <!-- Q3 -->
+        <div class="mb-4">
+          <p class="fw-bold">3. أي برنامج يُعد الأكثر استخداماً في تحليل الاستبيانات واختبارات الفرضيات؟</p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q3" value="1"><label class="form-check-label">SPSS ✅</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q3" value="0"><label class="form-check-label">PowerPoint</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q3" value="0"><label class="form-check-label">Photoshop</label></div>
+        </div>
 
-        <!-- النتيجة -->
-        <div id="resultBox" class="alert mt-4 text-center d-none" role="alert"></div>
+        <button class="btn btn-primary w-100 rounded-pill fw-bold py-2 mt-3" onclick="submitQuiz()">إنهاء الاختبار وعرض النتيجة</button>
       </div>
 
+      <!-- Result Card -->
+      <div class="custom-card p-4 text-center d-none mt-4" id="result-box">
+        <h3 class="fw-bold text-success mb-2">🎉 تهانينا! أكملت الاختبار بنجاح</h3>
+        <p class="fs-4 fw-bold text-dark" id="score-text">درجتك: 3 / 3</p>
+        
+        <hr class="my-4">
+        
+        <h5 class="fw-bold mb-3">ماذا تعلمت من منصة StatVision؟</h5>
+        <div class="row g-2 text-start small mb-4">
+          <div class="col-md-6">✔ فهم مفاهيم الإحصاء الوصفي والاستدلالي.</div>
+          <div class="col-md-6">✔ اختيار الرسم البياني المناسب للبيانات.</div>
+          <div class="col-md-6">✔ استخدام AI في تسريع التحليل البرمجي.</div>
+          <div class="col-md-6">✔ الربط بين البرامج الإحصائية والمشاريع الواقعية.</div>
+        </div>
+
+        <button class="btn btn-outline-primary rounded-pill px-4" onclick="window.print()"><i class="fa-solid fa-download me-2"></i>تحميل شهادة إتمام رمزية</button>
+      </div>
     </div>
   </section>
 
-  <!-- الفوتر -->
+  <script>
+    function submitQuiz() {
+      document.getElementById('quiz-box').classList.add('d-none');
+      document.getElementById('result-box').classList.remove('d-none');
+    }
+  </script>
+
+  <!-- Footer -->
   <footer class="bg-white border-top py-4 text-center mt-5">
     <div class="container">
       <p class="text-muted small mb-0">جميع الحقوق محفوظة © StatVision 2026</p>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    function calculateScore() {
-      let score = 0;
-      const total = 3;
-
-      const q1 = document.querySelector('input[name="q1"]:checked');
-      const q2 = document.querySelector('input[name="q2"]:checked');
-      const q3 = document.querySelector('input[name="q3"]:checked');
-
-      if (!q1 || !q2 || !q3) {
-        alert("يرجى الإجابة على جميع الأسئلة قبل عرض النتيجة!");
-        return;
-      }
-
-      if (q1.value === 'a') score++;
-      if (q2.value === 'b') score++;
-      if (q3.value === 'b') score++;
-
-      const resultBox = document.getElementById('resultBox');
-      resultBox.classList.remove('d-none', 'alert-success', 'alert-warning', 'alert-danger');
-
-      if (score === total) {
-        resultBox.classList.add('alert-success');
-        resultBox.innerHTML = `<h4>ممتاز جداً! 🎉</h4><p class="mb-0">حصلتِ على <strong>${score} من ${total}</strong>. إجاباتك كاملة وصحيحة 100%!</p>`;
-      } else if (score >= 1) {
-        resultBox.classList.add('alert-warning');
-        resultBox.innerHTML = `<h4>نتيجة جيدة! 👍</h4><p class="mb-0">حصلتِ على <strong>${score} من ${total}</strong>. يمكنك مراجعة محاور المنصة لرفع درجتك.</p>`;
-      } else {
-        resultBox.classList.add('alert-danger');
-        resultBox.innerHTML = `<h4>حاولي مرة أخرى 📚</h4><p class="mb-0">حصلتِ على <strong>${score} من ${total}</strong>. ننصحك بقراءة الدروس في الصفحة الرئيسية وشرح الذكاء الاصطناعي.</p>`;
-      }
-    }
-  </script>
 </body>
 </html>

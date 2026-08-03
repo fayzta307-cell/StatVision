@@ -1,236 +1,906 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StatVision | علم الإحصاء والرسومات البيانية</title>
-  
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StatVision | رحلة تفاعلية بين الإحصاء والذكاء الاصطناعي</title>
+    
+    <!-- خط Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- مكتبة Chart.js للرسوم البيانية -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* ==========================================================================
+           1. المتغيرات والتهيئة العامة (Variables & CSS Reset)
+           ========================================================================== */
+        :root {
+            --primary: #2563EB;
+            --primary-hover: #1D4ED8;
+            --secondary: #06B6D4;
+            --bg-main: #F8FAFC;
+            --card-bg: #FFFFFF;
+            --text-main: #0F172A;
+            --text-muted: #64748B;
+            --success: #10B981;
+            --border-color: #E2E8F0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ==========================================================================
+           2. شريط تقدم القراءة (Reading Progress Bar)
+           ========================================================================== */
+        #progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 1001;
+        }
+
+        #progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            width: 0%;
+            transition: width 0.1s ease-out;
+        }
+
+        /* ==========================================================================
+           3. القائمة العلويّة (Navbar)
+           ========================================================================== */
+        .navbar {
+            position: fixed;
+            top: 4px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 0.8rem 2rem;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            padding: 0.5rem 0.8rem;
+            border-radius: 8px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background-color: rgba(37, 99, 235, 0.05);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-main);
+        }
+
+        /* ==========================================================================
+           4. واجهة Hero الرئيسية
+           ========================================================================== */
+        .hero {
+            padding: 8rem 2rem 5rem 2rem;
+            background: radial-gradient(circle at 50% 20%, rgba(6, 182, 212, 0.08) 0%, rgba(37, 99, 235, 0.03) 50%, transparent 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: rgba(6, 182, 212, 0.1);
+            color: #0284C7;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            border: 1px solid rgba(6, 182, 212, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            line-height: 1.25;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #F1F5F9;
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================================================
+           5. التخطيط العام والأقسام (Layout & Sections)
+           ========================================================================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 4rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-main);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 50px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        /* ==========================================================================
+           6. البطاقات الحديثة (Modern Card System)
+           ========================================================================== */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1.8rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        /* ==========================================================================
+           7. الرسوم البيانية التفاعلية (Chart Container)
+           ========================================================================== */
+        .chart-card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+        }
+
+        /* ==========================================================================
+           8. AI Prompt Lab (مختبر الأوامر)
+           ========================================================================== */
+        .prompt-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            position: relative;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .prompt-box {
+            background-color: #F1F5F9;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #334155;
+            margin: 1rem 0;
+            direction: ltr;
+            text-align: left;
+            word-break: break-word;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .copy-btn {
+            background-color: white;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 0.4rem 0.9rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* ==========================================================================
+           9. قسم الكويز (Interactive Quiz)
+           ========================================================================== */
+        .quiz-container {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quiz-question {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .option-btn {
+            padding: 1rem 1.2rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            background-color: white;
+            text-align: right;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .option-btn:hover {
+            border-color: var(--primary);
+            background-color: rgba(37, 99, 235, 0.02);
+        }
+
+        .option-btn.correct {
+            background-color: rgba(16, 185, 129, 0.1);
+            border-color: var(--success);
+            color: #065F46;
+            font-weight: 700;
+        }
+
+        .option-btn.incorrect {
+            background-color: rgba(239, 68, 68, 0.1);
+            border-color: #EF4444;
+            color: #991B1B;
+        }
+
+        .quiz-result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 700;
+            display: none;
+        }
+
+        /* ==========================================================================
+           10. زر العودة للأعلى والإشعارات (Scroll Top & Toast)
+           ========================================================================== */
+        #scroll-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+            z-index: 999;
+            border: none;
+        }
+
+        #scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #scroll-top:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary-hover);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--text-main);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+            z-index: 2000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ==========================================================================
+           11. تجاوب الشاشات (Responsive Design)
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+            
+            .menu-toggle { display: block; }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                background-color: white;
+                flex-direction: column;
+                padding: 1rem 2rem;
+                border-bottom: 1px solid var(--border-color);
+                box-shadow: var(--shadow-md);
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <div id="progress-bar"></div>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html"><i class="fa-solid fa-chart-line me-2"></i>StatVision</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="index.html">علم الإحصاء والرسومات</a></li>
-          <li class="nav-item"><a class="nav-link" href="ai.html">الذكاء الاصطناعي والبرامج</a></li>
-          <li class="nav-item"><a class="nav-link" href="projects.html">المشاريع والتطبيقات</a></li>
-          <li class="nav-item"><a class="nav-link text-primary fw-bold" href="quiz.html">الاختبار النهائي</a></li>
-        </ul>
-      </div>
+    <!-- شريط تقدم القراءة -->
+    <div id="progress-container">
+        <div id="progress-bar"></div>
     </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <section class="hero-section text-center">
-    <div class="container">
-      <h1 class="hero-title mb-3">مرحبًا بك في StatVision</h1>
-      <p class="hero-subtitle mb-3">رحلة تفاعلية بين الإحصاء والذكاء الاصطناعي</p>
-      <p class="text-muted max-w-700 mx-auto mb-4">منصة تعليمية تفاعلية تهدف إلى تبسيط مفاهيم علم الإحصاء وإظهار دوره في بناء تقنيات الذكاء الاصطناعي.</p>
-      <a href="#statistic-basics" class="btn btn-primary btn-lg rounded-pill px-4">لنبدأ رحلتنا <i class="fa-solid fa-arrow-down ms-2"></i></a>
-    </div>
-  </section>
-
-  <!-- إحصائية اليوم -->
-  <section class="container my-4">
-    <div class="alert alert-info border-0 shadow-sm rounded-4 p-4 d-flex align-items-center">
-      <i class="fa-solid fa-lightbulb fs-2 me-3 text-primary"></i>
-      <div>
-        <h6 class="fw-bold mb-1">إحصائية اليوم</h6>
-        <p class="mb-0 text-muted small" id="daily-stat">يُقدَّر أن أكثر من 90% من البيانات الموجودة في العالم أُنشئت خلال السنوات الأخيرة.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- الجزء الأول: أساسيات الإحصاء -->
-  <section id="statistic-basics" class="py-5">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title">الجزء الأول: علم الإحصاء</h2>
-        <p class="text-muted">تحويل المعلومات الخام إلى نتائج واضحة تساعد على اتخاذ القرارات</p>
-      </div>
-
-      <!-- ما هو الإحصاء ولماذا ندرسه -->
-      <div class="row g-4 mb-5">
-        <div class="col-md-6">
-          <div class="custom-card">
-            <h4 class="fw-bold text-primary mb-3"><i class="fa-solid fa-book-open me-2"></i>ما هو علم الإحصاء؟</h4>
-            <p class="text-muted">هو علم يهتم بجمع البيانات، وتنظيمها، وتحليلها، وتفسيرها بهدف تحويل المعلومات الخام إلى نتائج واضحة تساعد على فهم الظواهر واتخاذ القرارات المبنية على الأدلة.</p>
-            <p class="fw-bold text-dark small mb-0">يُستخدم في: الطب، الاقتصاد، الأعمال، التعليم، الهندسة، البيئة، والذكاء الاصطناعي.</p>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="custom-card">
-            <h4 class="fw-bold text-primary mb-3"><i class="fa-solid fa-circle-question me-2"></i>لماذا ندرس الإحصاء؟</h4>
-            <p class="text-muted">بدون الإحصاء البيانات مجرد أرقام، لكن معه تتحول لفرص ومعرفة. يساعدنا على:</p>
-            <div class="row g-2 text-muted small">
-              <div class="col-6">✔ جمع البيانات بأسلوب صحيح</div>
-              <div class="col-6">✔ تنظيم وتحليل النتائج</div>
-              <div class="col-6">✔ اكتشاف الأنماط والاتجاهات</div>
-              <div class="col-6">✔ التنبؤ ودعم اتخاذ القرار</div>
+    <!-- الشريط العلوي (Navbar) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-chart-line"></i> StatVision
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- أقسام الإحصاء -->
-      <h3 class="h4 fw-bold mb-4 text-center">أقسام علم الإحصاء الرئيسية</h3>
-      <div class="row g-4 mb-5">
-        <div class="col-md-6">
-          <div class="custom-card border-start border-4 border-primary">
-            <h5 class="fw-bold text-dark">1. الإحصاء الوصفي (Descriptive)</h5>
-            <p class="text-muted small">يهتم بوصف البيانات الموجودة دون محاولة التعميم على مجتمع أكبر. يشمل: تنظيم البيانات، تلخيصها، عرضها بالجداول والرسومات، وحساب المتوسطات ومقاييس التشتت.</p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="custom-card border-start border-4 border-info">
-            <h5 class="fw-bold text-dark">2. الإحصاء الاستدلالي (Inferential)</h5>
-            <p class="text-muted small">يعتمد على دراسة عينة صغيرة ممثلة للمجتمع، واستخدام نتائجها للتوصل إلى استنتاجات وتعميمات عن المجتمع بأكمله (مثال: دراسة عينة من 500 طالب لتقدير رأي جميع طلاب الجامعة).</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- مقاييس النزعة والتشتت والمفاهيم -->
-      <div class="row g-4 mb-5">
-        <div class="col-md-4">
-          <div class="custom-card">
-            <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-bullseye me-2"></i>مقاييس النزعة المركزية</h5>
-            <ul class="list-unstyled text-muted small lh-lg">
-              <li><strong>المتوسط الحسابي (Mean):</strong> مجموع القيم مقسومًا على عددها.</li>
-              <li><strong>الوسيط (Median):</strong> القيمة المنتصفة بعد الترتيب ولا يتأثر بالقيم المتطرفة.</li>
-              <li><strong>المنوال (Mode):</strong> القيمة الأكثر تكرارًا داخل البيانات.</li>
+            <ul class="nav-links">
+                <li><a href="#stats">علم الإحصاء</a></li>
+                <li><a href="#ai">الذكاء الاصطناعي</a></li>
+                <li><a href="#prompts">AI Prompt Lab</a></li>
+                <li><a href="#software">البرامج الإحصائية</a></li>
+                <li><a href="#quiz">الاختبارات</a></li>
+                <li><a href="#projects">المشاريع</a></li>
             </ul>
-          </div>
         </div>
+    </nav>
 
-        <div class="col-md-4">
-          <div class="custom-card">
-            <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-arrows-left-right me-2"></i>مقاييس التشتت</h5>
-            <ul class="list-unstyled text-muted small lh-lg">
-              <li><strong>المدى (Range):</strong> الفرق بين أكبر وأصغر قيمة.</li>
-              <li><strong>التباين (Variance):</strong> يقيس مقدار اختلاف البيانات عن المتوسط.</li>
-              <li><strong>الانحراف المعياري (SD):</strong> المقياِس الأكثر استخدامًا لبيان مدى ابتعاد القيم عن المتوسط.</li>
-            </ul>
-          </div>
+    <!-- قسم الـ Hero -->
+    <header class="hero">
+        <div class="hero-container">
+            <span class="badge"><i class="fa-solid fa-graduation-cap"></i> منصة مشروع التخرج التعليمية</span>
+            <h1>رحلة تفاعلية تجمع بين <span>علم الإحصاء</span> و<span>الذكاء الاصطناعي</span></h1>
+            <p>تم تصميم منصة StatVision لتبسيط المفاهيم الإحصائية المعقدة وإبراز الدور الجوهري للإحصاء في بناء وتطوير خوارزميات الذكاء الاصطناعي الحديثة.</p>
+            <div class="btn-group">
+                <a href="#stats" class="btn btn-primary"><i class="fa-solid fa-compass"></i> ابدأ الرحلة التفاعلية</a>
+                <a href="#quiz" class="btn btn-secondary"><i class="fa-solid fa-vial"></i> اختبر معارفك</a>
+            </div>
         </div>
+    </header>
 
-        <div class="col-md-4">
-          <div class="custom-card">
-            <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-cubes me-2"></i>المفاهيم الأساسية</h5>
-            <ul class="list-unstyled text-muted small lh-lg">
-              <li><strong>المجتمع (Population):</strong> جميع العناصر محل الدراسة (مثلاً: كافة طلاب الجامعة).</li>
-              <li><strong>العينة (Sample):</strong> جزء من المجتمع يتم اختياره لتمثيله (مثلاً: 500 طالب).</li>
-              <li><strong>البيانات والمتغيرات:</strong> المعلومات والصفات التي تختلف بين الأفراد (العمر، الوزن، الدخل).</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <main class="container">
 
-  <!-- الجزء الثاني: الرسومات البيانية -->
-  <section class="py-5 bg-white">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title">الجزء الثاني: الرسومات البيانية (Data Visualization)</h2>
-        <p class="text-muted">«اختيار الرسم البياني المناسب لا يقل أهمية عن تحليل البيانات نفسه»</p>
-      </div>
+        <!-- الجزء الأول: علم الإحصاء -->
+        <section id="stats">
+            <div class="section-header">
+                <h2>الجزء الأول: علم الإحصاء والبيانات</h2>
+                <p>تحويل المعلومات الخام إلى نتائج واضحة تساعد على اتخاذ القرار</p>
+            </div>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-book-open"></i></div>
+                    <h3 class="card-title">ما هو علم الإحصاء؟</h3>
+                    <p class="card-desc">علم يختص بجمع البيانات، تنظيمها، تحليلها، وتفسيرها لفهم الظواهر المختلفة واتخاذ القرارات المبنية على الأدلة والبراهين. يتفرع إلى الإحصاء الوصفي والإحصاء الاستدلالي.</p>
+                </div>
+                <div class="chart-card">
+                    <h3 class="card-title" style="font-size: 1.1rem; margin-bottom: 1rem;"><i class="fa-solid fa-chart-bar" style="color:var(--primary);"></i> نمو حجم البيانات العالمي (Zettabytes)</h3>
+                    <div class="chart-container">
+                        <canvas id="dataGrowthChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <div class="row g-4">
-        <!-- المدرج التكراري -->
-        <div class="col-md-6 col-lg-4">
-          <div class="custom-card">
-            <div class="text-primary fs-3 mb-2"><i class="fa-solid fa-chart-simple"></i></div>
-            <h5 class="fw-bold">المدرج التكراري (Histogram)</h5>
-            <p class="text-muted small">لعرض توزيع البيانات الرقمية داخل فئات متتالية واكتشاف القيم الشاذة (Outliers).</p>
-            <span class="badge bg-light text-primary border">مثال: توزيع أعمار المرضى أو الدرجات</span>
-          </div>
-        </div>
+        <!-- الجزء الثاني: الذكاء الاصطناعي -->
+        <section id="ai">
+            <div class="section-header">
+                <h2>الجزء الثاني: الذكاء الاصطناعي والإحصاء</h2>
+                <p>كيف يشكل الإحصاء العمود الفقري لتقنيات الذكاء الاصطناعي</p>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3 class="card-title">تعلم الآلة (Machine Learning)</h3>
+                    <p class="card-desc">يعتمد كليًا على النماذج الإحصائية مثل الانحدار الخطي (Linear Regression) والتصنيف لمعالجة البيانات والتنبؤ بالنتائج المستقبلية.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+                    <h3 class="card-title">الذكاء الاصطناعي التوليدي</h3>
+                    <p class="card-desc">يستخدم التوزيعات الاحتمالية والاحتمالات الشرطية لتوليد نصوص وصور جديدة بناءً على أنماط البيانات التدريبية.</p>
+                </div>
+                <div class="chart-card">
+                    <h3 class="card-title" style="font-size:1.1rem; margin-bottom: 1rem;"><i class="fa-solid fa-chart-pie" style="color:var(--secondary);"></i> المكونات الرياضية للذكاء الاصطناعي</h3>
+                    <div class="chart-container">
+                        <canvas id="aiComponentsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- مخطط الأعمدة -->
-        <div class="col-md-6 col-lg-4">
-          <div class="custom-card">
-            <div class="text-primary fs-3 mb-2"><i class="fa-solid fa-chart-column"></i></div>
-            <h5 class="fw-bold">مخطط الأعمدة (Bar Chart)</h5>
-            <p class="text-muted small">لمقارنة القيم والتكرارات بين فئات ومجموعات مختلفة بأعمدة منفصلة.</p>
-            <span class="badge bg-light text-primary border">مثال: عدد الموظفين في فروع المدن</span>
-          </div>
-        </div>
+        <!-- الجزء الثالث: AI Prompt Lab -->
+        <section id="prompts">
+            <div class="section-header">
+                <h2>مختبر أوامر الذكاء الاصطناعي (AI Prompt Lab)</h2>
+                <p>أوامر جاهزة ومصممة خصيصًا لمساعدتك في التحليل الإحصائي</p>
+            </div>
+            <div class="grid-2">
+                <div class="prompt-card">
+                    <h3 class="card-title"><i class="fa-solid fa-terminal" style="color: var(--primary);"></i> كود R للتحليل الإحصائي</h3>
+                    <p class="card-desc">أمر لتوليد كود R مجرب لحساب المتوسط والاهتزاز وحساب الانحراف المعياري.</p>
+                    <div class="prompt-box" id="p1">Write an R script to calculate the mean, standard deviation, and generate a histogram with ggplot2 for a normal distribution dataset.</div>
+                    <button class="copy-btn" onclick="copyPrompt('p1')"><i class="fa-regular fa-copy"></i> نسخ النص</button>
+                </div>
+                <div class="prompt-card">
+                    <h3 class="card-title"><i class="fa-solid fa-terminal" style="color: var(--secondary);"></i> تفسير نتائج SPSS</h3>
+                    <p class="card-desc">أمر للذكاء الاصطناعي لشرح مخرجات اختبار T-Test بأسلوب أكاديمي سهل.</p>
+                    <div class="prompt-box" id="p2">Explain the output of an Independent Samples T-Test from SPSS including p-value, t-statistic, and confidence intervals for an academic audience.</div>
+                    <button class="copy-btn" onclick="copyPrompt('p2')"><i class="fa-regular fa-copy"></i> نسخ النص</button>
+                </div>
+            </div>
+        </section>
 
-        <!-- المخطط الدائري -->
-        <div class="col-md-6 col-lg-4">
-          <div class="custom-card">
-            <div class="text-primary fs-3 mb-2"><i class="fa-solid fa-chart-pie"></i></div>
-            <h5 class="fw-bold">المخطط الدائري (Pie Chart)</h5>
-            <p class="text-muted small">توضيح كيفية تقسيم الكل إلى أجزاء ونسب مئوية عندما تكون الفئات قليلة.</p>
-            <span class="badge bg-light text-primary border">مثال: المشروب المفضل لدى الطلاب</span>
-          </div>
-        </div>
+        <!-- الجزء الرابع: البرامج الإحصائية -->
+        <section id="software">
+            <div class="section-header">
+                <h2>الجزء الرابع: البرامج الإحصائية والذكاء الاصطناعي</h2>
+                <p>أبرز الأدوات المستخدمة في معالجة البيانات وبناء النماذج</p>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-brands fa-r-project"></i></div>
+                    <h3 class="card-title">لغة R & RStudio</h3>
+                    <p class="card-desc">بيئة برمجية متكاملة للتحليل الإحصائي، رسم المنحنيات التفاعلية، وبناء النماذج المتقدمة عبر حزم مثل ggplot2.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-square-poll-vertical"></i></div>
+                    <h3 class="card-title">برنامج SPSS</h3>
+                    <p class="card-desc">الأداة الأكثر شهرة لتحليل الاستبيانات، اختبار الفرضيات، والتحليلات الاجتماعية والطبية عبر واجهة واضحة.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-brands fa-python"></i></div>
+                    <h3 class="card-title">لغة Python</h3>
+                    <p class="card-desc">اللغة الأساسية للذكاء الاصطناعي بفضل مكتبات إحصائية متقدمة مثل Pandas, NumPy, و Scikit-Learn.</p>
+                </div>
+            </div>
+        </section>
 
-        <!-- الرسم الخطي -->
-        <div class="col-md-6 col-lg-6">
-          <div class="custom-card">
-            <div class="text-primary fs-3 mb-2"><i class="fa-solid fa-chart-line"></i></div>
-            <h5 class="fw-bold">الرسم الخطي (Line Chart)</h5>
-            <p class="text-muted small">عرض تغير البيانات مع مرور الزمن لمتابعة الاتجاهات وتوقع الأداء المستقبلية.</p>
-            <span class="badge bg-light text-primary border">مثال: مبيعات شركة أو زوار موقع خلال أشهر</span>
-          </div>
-        </div>
+        <!-- الجزء الخامس: الاختبار التفاعلي (Quiz) -->
+        <section id="quiz">
+            <div class="section-header">
+                <h2>اختبر معارفك الإحصائية</h2>
+                <p>اختبارات تفاعلية قصيرة لتقييم مدى استيعابك للمفاهيم</p>
+            </div>
+            <div class="quiz-container">
+                <div class="quiz-question" id="question-text">سؤال 1: ما هو المفهوم الإحصائي الذي يمثل النقطة الوسطى للبيانات المرتبة؟</div>
+                <div class="quiz-options" id="options-container">
+                    <!-- سيتم تحميل الخيارات ديناميكيًا عبر JavaScript -->
+                </div>
+                <div id="quiz-result" class="quiz-result"></div>
+            </div>
+        </section>
 
-        <!-- مخطط التشتت -->
-        <div class="col-md-6 col-lg-6">
-          <div class="custom-card">
-            <div class="text-primary fs-3 mb-2"><i class="fa-solid fa-circle-dot"></i></div>
-            <h5 class="fw-bold">مخطط التشتت (Scatter Plot)</h5>
-            <p class="text-muted small">عرض العلاقة والارتباط الموجب أو السالب بين متغيرين باستخدام نقاط موزعة.</p>
-            <span class="badge bg-light text-primary border">مثال: العلاقة بين ساعات المذاكرة ودرجات الطلاب</span>
-          </div>
-        </div>
-      </div>
+        <!-- الجزء السادس: المشاريع -->
+        <section id="projects">
+            <div class="section-header">
+                <h2>معرض المشاريع التطبيقية</h2>
+                <p>تطبيقات ومشاريع تعكس تكامل البيانات مع AI</p>
+            </div>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                    <h3 class="card-title">مشروع تحليل البيانات الاستكشافي</h3>
+                    <p class="card-desc">لوحة قيادة تفاعلية لتصور البيانات الديموغرافية والتحليل التنبئي باستخدام التقنيات الإحصائية الحديثة.</p>
+                    <a href="#" target="_blank" class="btn btn-secondary" style="align-self: flex-start; margin-top: 1rem;"><i class="fa-solid fa-arrow-up-right-from-square"></i> زيارة المشروع</a>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <h3 class="card-title">منوذج التنبؤ بالذكاء الاصطناعي</h3>
+                    <p class="card-desc">نموذج مبني باستخدام الانحدار اللوجستي للتنبؤ بالاتجاهات المستقبلية بناءً على سلسلة زمنية إحصائية.</p>
+                    <a href="#" target="_blank" class="btn btn-secondary" style="align-self: flex-start; margin-top: 1rem;"><i class="fa-solid fa-arrow-up-right-from-square"></i> زيارة المشروع</a>
+                </div>
+            </div>
+        </section>
 
-      <!-- جدول اختيار الرسم -->
-      <div class="mt-5 p-4 custom-card">
-        <h5 class="fw-bold text-center mb-4">كيف أختار الرسم البياني المناسب؟</h5>
-        <div class="table-responsive">
-          <table class="table table-bordered text-center align-middle mb-0">
-            <thead class="table-light">
-              <tr>
-                <th>إذا أردت...</th>
-                <th>استخدم...</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>مقارنة بين فئات</td><td><strong>مخطط الأعمدة</strong></td></tr>
-              <tr><td>عرض نسب مئوية</td><td><strong>المخطط الدائري</strong></td></tr>
-              <tr><td>متابعة التغير مع الزمن</td><td><strong>الرسم الخطي</strong></td></tr>
-              <tr><td>معرفة توزيع البيانات</td><td><strong>المدرج التكراري</strong></td></tr>
-              <tr><td>دراسة العلاقة بين متغيرين</td><td><strong>مخطط التشتت</strong></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+    </main>
 
-    </div>
-  </section>
+    <!-- زر العودة للأعلى -->
+    <button id="scroll-top" aria-label="العودة للأعلى">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
-  <!-- Footer -->
-  <footer class="bg-white border-top py-4 text-center mt-5">
-    <div class="container">
-      <p class="text-muted small mb-0">جميع الحقوق محفوظة © StatVision 2026</p>
-    </div>
-  </footer>
+    <!-- عنصر الإشعارات (Toast) -->
+    <div id="toast" class="toast">تم النسخ بنجاح!</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript التفاعلي -->
+    <script>
+        /* ==========================================================================
+           1. شريط تقدم القراءة (Scroll Progress Bar)
+           ========================================================================== */
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progress-bar').style.width = scrolled + '%';
+
+            // إظهار زر العودة للأعلى
+            const scrollTopBtn = document.getElementById('scroll-top');
+            if (winScroll > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        // حدث زر العودة للأعلى
+        document.getElementById('scroll-top').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        /* ==========================================================================
+           2. القائمة التفاعلية للجوال
+           ========================================================================== */
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        /* ==========================================================================
+           3. أنيميشن ظهور العناصر عند النزول (Intersection Observer)
+           ========================================================================== */
+        const observerOptions = { threshold: 0.15 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        /* ==========================================================================
+           4. بناء الرسومات البيانية التفاعلية (Chart.js)
+           ========================================================================== */
+        document.addEventListener('DOMContentLoaded', () => {
+            // رسم بياني لنمو البيانات
+            const ctx1 = document.getElementById('dataGrowthChart').getContext('2d');
+            new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: ['2020', '2022', '2024', '2026'],
+                    datasets: [{
+                        label: 'حجم البيانات العالمية (ZB)',
+                        data: [64, 97, 147, 181],
+                        backgroundColor: '#2563EB',
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            // رسم بياني لمكونات الذكاء الاصطناعي
+            const ctx2 = document.getElementById('aiComponentsChart').getContext('2d');
+            new Chart(ctx2, {
+                type: 'doughnut',
+                data: {
+                    labels: ['الإحصاء والاحتمالات', 'الجبر الخطي', 'التفاضل والتكامل', 'البرمجة'],
+                    datasets: [{
+                        data: [40, 30, 15, 15],
+                        backgroundColor: ['#2563EB', '#06B6D4', '#10B981', '#64748B']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        });
+
+        /* ==========================================================================
+           5. AI Prompt Lab - وظيفة النسخ الإشعارات
+           ========================================================================== */
+        function copyPrompt(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                showToast("تم نسخ الـ Prompt بنجاح إلى الحافظة!");
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.innerText = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        /* ==========================================================================
+           6. منطق الاختبار التفاعلي (Interactive Quiz)
+           ========================================================================== */
+        const quizData = [
+            {
+                question: "ما هو المفهوم الإحصائي الذي يمثل قيمة الوسط المنصفة للبيانات بعد ترتيبها؟",
+                options: ["المتوسط الحسابي (Mean)", "الوسيط (Median)", "المنوال (Mode)", "الانحراف المعياري"],
+                correct: 1
+            }
+        ];
+
+        function loadQuiz() {
+            const q = quizData[0];
+            document.getElementById('question-text').innerText = q.question;
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerHTML = `<span>${opt}</span> <i class="fa-regular fa-circle"></i>`;
+                btn.onclick = () => checkAnswer(idx, q.correct, btn);
+                container.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(selectedIndex, correctIndex, selectedBtn) {
+            const allBtns = document.querySelectorAll('.option-btn');
+            allBtns.forEach(btn => btn.style.pointerEvents = 'none'); // تعطيل الضغط المكرر
+
+            const resultDiv = document.getElementById('quiz-result');
+            resultDiv.style.display = 'block';
+
+            if (selectedIndex === correctIndex) {
+                selectedBtn.classList.add('correct');
+                selectedBtn.querySelector('i').className = 'fa-solid fa-circle-check';
+                resultDiv.style.backgroundColor = 'rgba(16, 185, 129, 0.1)';
+                resultDiv.style.color = '#065F46';
+                resultDiv.innerHTML = '<i class="fa-solid fa-trophy"></i> إجابة صحيحة! أحسنت، الوسيط هو القيمة التي تقسم البيانات إلى النصف.';
+            } else {
+                selectedBtn.classList.add('incorrect');
+                selectedBtn.querySelector('i').className = 'fa-solid fa-circle-xmark';
+                allBtns[correctIndex].classList.add('correct');
+                resultDiv.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
+                resultDiv.style.color = '#991B1B';
+                resultDiv.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> إجابة خاطئة! الإجابة الصحيحة هي الوسيط (Median).';
+            }
+        }
+
+        loadQuiz();
+    </script>
 </body>
 </html>

@@ -22,9 +22,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
-          <li class="nav-item"><a class="nav-link" href="ai.html">الذكاء الاصطناعي</a></li>
-          <li class="nav-item"><a class="nav-link active" href="projects.html">المشاريع</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">علم الإحصاء والرسومات</a></li>
+          <li class="nav-item"><a class="nav-link" href="ai.html">الذكاء الاصطناعي والبرامج</a></li>
+          <li class="nav-item"><a class="nav-link active" href="projects.html">المشاريع والتطبيقات</a></li>
           <li class="nav-item"><a class="nav-link text-primary fw-bold" href="quiz.html">الاختبار النهائي</a></li>
         </ul>
       </div>
@@ -34,72 +34,65 @@
   <!-- Hero Section -->
   <section class="hero-section text-center">
     <div class="container">
-      <h1 class="hero-title mb-3">المشاريع والتطبيقات الإحصائية</h1>
-      <p class="text-muted mb-4">نماذج برمجية وإحصائية غنية تربط النظرية بالتطبيق الفعلي</p>
+      <h1 class="hero-title mb-3">مشاريع إحصائية مدعومة بالذكاء الاصطناعي</h1>
+      <p class="text-muted mb-4">من الفكرة إلى التطبيق: استعراض لمشاريع طلابية واقعية تربط الإحصاء بالحلول الرقمية</p>
     </div>
   </section>
 
-  <!-- Main Content -->
+  <!-- المشاريع الواقعية -->
   <section class="py-5">
-    <div class="container py-3">
+    <div class="container">
       <div class="row g-4">
 
-        <!-- Project 1: R Code for Population Pyramid -->
-        <div class="col-md-12">
-          <div class="custom-card p-4">
-            <h3 class="h4 fw-bold text-primary mb-3"><i class="fa-brands fa-r-project me-2"></i>1. رسم الهرم السكاني التفاعلي بلغة R</h3>
-            <p class="text-muted">استخدام مكتبة <code>ggplot2</code> لتصميم هرم سكاني مقلوب أو عالي الدقة يوضح توزيع الفئات العمرية بين الذكور والإناث:</p>
-            
-            <pre class="bg-dark text-light p-3 rounded-3 dir-ltr text-start" style="font-family: monospace;">
-# تحميل المكتبات المطلوبة
-library(ggplot2)
-
-# إنشاء بيانات افتراضية للهرم السكاني
-age_groups <- factor(c("0-14", "15-24", "25-54", "55-64", "65+"), levels = c("0-14", "15-24", "25-54", "55-64", "65+"))
-males <- c(-30, -25, -40, -15, -8)
-females <- c(28, 24, 38, 16, 10)
-
-df <- data.frame(age_groups, males, females)
-
-# رسم الهرم السكاني
-ggplot(df) +
-  geom_bar(aes(x = age_groups, y = males), stat = "identity", fill = "#2563EB") +
-  geom_bar(aes(x = age_groups, y = females), stat = "identity", fill = "#06B6D4") +
-  coord_flip() +
-  labs(title = "Population Pyramid", x = "Age Group", y = "Population Count") +
-  theme_minimal()
-            </pre>
+        <!-- مشروع 1: الإحصاء والاستدامة -->
+        <div class="col-md-4">
+          <div class="custom-card d-flex flex-column justify-content-between">
+            <div>
+              <div class="text-success fs-2 mb-2"><i class="fa-solid fa-leaf"></i></div>
+              <span class="badge bg-success-subtle text-success border border-success mb-2">مقرر مراقبة الجودة (STAT 333)</span>
+              <h5 class="fw-bold text-dark">1. الإحصاء والاستدامة</h5>
+              <p class="text-muted small">دراسة بدائل مستدامة للبلاستيك وتقييم جودتها إحصائياً. تم استخدام الذكاء الاصطناعي للبحث عن المراجع، تحليل البيانات، وتفسير النتائج.</p>
+            </div>
+            <a href="https://share.google/IzBliIkmJDCsLR3V7" target="_blank" class="btn btn-outline-success btn-sm rounded-pill mt-3">عرض رابط المشروع <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></a>
           </div>
         </div>
 
-        <!-- Project 2: Quality Control Charts -->
-        <div class="col-md-6">
-          <div class="custom-card p-4">
-            <h3 class="h5 fw-bold text-success mb-3"><i class="fa-solid fa-chart-line me-2"></i>2. مخططات ضبط الجودة (R-Charts)</h3>
-            <p class="text-muted small">تُستخدم لوحات التحكم بالإحصاء (Control Charts) لتتبع التباين والانحرافات المعيارية للعمليات مع مرور الوقت ومراقبة حد الضبط الأعلى (UCL) وحد الضبط الأدنى (LCL).</p>
-            <ul class="text-muted small ps-3">
-              <li>مراقبة ثبات تشتت العمليات.</li>
-              <li>التمتّع بتقييم مستمر للجودة عبر برمجيات مثل Minitab و R.</li>
-            </ul>
+        <!-- مشروع 2: الإحصاء السكاني -->
+        <div class="col-md-4">
+          <div class="custom-card d-flex flex-column justify-content-between">
+            <div>
+              <div class="text-primary fs-2 mb-2"><i class="fa-solid fa-users"></i></div>
+              <span class="badge bg-primary-subtle text-primary border border-primary mb-2">مقرر الإحصاء السكاني (STAT 334)</span>
+              <h5 class="fw-bold text-dark">2. الإحصاء السكاني</h5>
+              <p class="text-muted small">دراسة مشاركة المرأة في سوق العمل وتحليل الهرم السكاني والمؤشرات الديموغرافية وتفسير المخرجات عبر أدوات الذكاء الاصطناعي.</p>
+            </div>
+            <a href="https://fayzhalshhrany6-maker.github.io/women-empowerment/" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill mt-3">عرض رابط المشروع <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></a>
           </div>
         </div>
 
-        <!-- Project 3: Ansari-Bradley Test -->
-        <div class="col-md-6">
-          <div class="custom-card p-4">
-            <h3 class="h5 fw-bold text-info mb-3"><i class="fa-solid fa-square-root-variable me-2"></i>3. الاختبارات غير المعلمية (Ansari-Bradley)</h3>
-            <p class="text-muted small">يُعد اختبار **Ansari-Bradley** خياراً ممتازاً للمقارنة بين تشتت عينتين مستقلتين عندما لا تتوزع البيانات توزيعاً طبيعياً:</p>
-            
-            <pre class="bg-dark text-light p-2 rounded-3 dir-ltr text-start small" style="font-family: monospace;">
-# تنفيذ اختبار أنساري-برادلي في R
-group1 <- c(12, 15, 18, 11, 14)
-group2 <- c(22, 10, 29, 31, 19)
-
-ansari.test(group1, group2)
-            </pre>
+        <!-- مشروع 3: الإحصاء والبيئة -->
+        <div class="col-md-4">
+          <div class="custom-card d-flex flex-column justify-content-between">
+            <div>
+              <div class="text-info fs-2 mb-2"><i class="fa-solid fa-earth-americas"></i></div>
+              <span class="badge bg-info-subtle text-info border border-info mb-2">مشروع بيئي تفاعلي</span>
+              <h5 class="fw-bold text-dark">3. الإحصاء والبيئة</h5>
+              <p class="text-muted small">دراسة القضايا البيئية كالطقس والمناخ والمياه ودور البيانات الإحصائية في دعم القرارات البيئية وبناء المنصات التفاعلية.</p>
+            </div>
+            <a href="https://fayzta307-cell.github.io/index.html/" target="_blank" class="btn btn-outline-info btn-sm rounded-pill mt-3">عرض رابط المشروع <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></a>
           </div>
         </div>
 
+      </div>
+
+      <!-- ماذا تعلمنا -->
+      <div class="mt-5 custom-card p-4 bg-light">
+        <h5 class="fw-bold mb-3"><i class="fa-solid fa-graduation-cap me-2 text-primary"></i>ماذا تعلمنا من هذه المشاريع؟</h5>
+        <ul class="text-muted small lh-lg mb-0">
+          <li>✔ تسريع تحليل البيانات وتحسين دقة النتائج الإحصائية.</li>
+          <li>✔ تسهيل تفسير المخرجات المعقدة ونشرها بصورة تفاعلية.</li>
+          <li>✔ تقديم حلول مبتكرة لمشكلات المجتمع والبيئة والاستدامة.</li>
+        </ul>
       </div>
     </div>
   </section>

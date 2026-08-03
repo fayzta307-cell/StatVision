@@ -1,288 +1,78 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StatVision | الذكاء الاصطناعي والبرامج الإحصائية</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StatVision | الذكاء الاصطناعي والبرامج</title>
+  
+  <!-- Bootstrap 5 RTL CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- ملف التنسيقات الخاص بك -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <div id="progress-bar"></div>
+  <!-- شريط تقدم التمرير -->
+  <div id="progress-bar"></div>
 
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html"><i class="fas fa-chart-line"></i> StatVision</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">علم الإحصاء والرسومات</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="ai.html">الذكاء الاصطناعي والبرامج</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects.html">المشاريع والاختبار النهائي</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero -->
-    <section class="hero-section text-center">
-        <div class="container" data-aos="fade-up">
-            <h1 class="hero-title text-primary mb-3">الذكاء الاصطناعي والبرامج الإحصائية</h1>
-            <p class="hero-subtitle">اكتشف كيف تحول الذكاء الاصطناعي من أداة مساعدة إلى شريك أساسي للمحلل الإحصائي</p>
-        </div>
-    </section>
-
-    <div class="container my-5">
-
-        <!-- AI Definition & Relation -->
-        <section class="mb-5" data-aos="fade-up">
-            <div class="custom-card">
-                <h3 class="section-title">ما هو الذكاء الاصطناعي؟</h3>
-                <p>الذكاء الاصطناعي (Artificial Intelligence) هو مجموعة من التقنيات والأنظمة القادرة على محاكاة بعض القدرات الذهنية للبشر، مثل: التعلم من البيانات، الاستنتاج، حل المشكلات، اتخاذ القرارات، والتعرف على الأنماط.</p>
-                <div class="quote-box my-3"><i class="fas fa-lightbulb text-warning"></i> هل تعلم؟ كلما كانت البيانات أكثر جودة وتنظيمًا، كانت نتائج الذكاء الاصطناعي أكثر دقة وموثوقية.</div>
-                
-                <h4 class="mt-4 text-primary">العلاقة بين الإحصاء والذكاء الاصطناعي</h4>
-                <p>قد يبدو الإحصاء والذكاء الاصطناعي مجالين مختلفين، لكنهما في الواقع يكملان بعضهما البعض:</p>
-                <ul>
-                    <li><strong>الإحصاء:</strong> يساعد على جمع البيانات وتنظيفها وتحليلها وفهمها.</li>
-                    <li><strong>الذكاء الاصطناعي:</strong> يستخدم هذه البيانات لبناء نماذج ذكية تتعلم وتتنبأ وتتخذ قرارات.</li>
-                </ul>
-                <p class="fw-bold">لذلك يمكن القول إن الإحصاء هو الأساس الذي يبنى عليه الكثير من تطبيقات الذكاء الاصطناعي.</p>
-            </div>
-        </section>
-
-        <!-- Famous AI Tools Grid -->
-        <section class="mb-5" data-aos="fade-up">
-            <h3 class="section-title">أشهر أدوات الذكاء الاصطناعي في الإحصاء</h3>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="custom-card">
-                        <h5><i class="fas fa-robot text-primary"></i> ChatGPT</h5>
-                        <p class="small text-muted">تفسير النتائج، كتابة أكواد Python/R/SQL/SPSS، شرح المفاهيم، وكتابة التقارير.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="custom-card">
-                        <h5><i class="fas fa-sparkles text-info"></i> Gemini</h5>
-                        <p class="small text-muted">تحليل البيانات، البحث عن المعلومات، تلخيص الملفات، وإنشاء أفكار للمشاريع.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="custom-card">
-                        <h5><i class="fas fa-brain text-warning"></i> Claude</h5>
-                        <p class="small text-muted">قراءة الملفات الطويلة، تلخيص الأبحاث، تحليل المستندات، وشرح النتائج بالتفصيل.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="custom-card">
-                        <h5><i class="fas fa-book-reader text-success"></i> NotebookLM</h5>
-                        <p class="small text-muted">تلخيص المراجع، إنشاء أسئلة من الملفات، تنظيم المحتوى، ومراجعة المحاضرات.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="custom-card">
-                        <h5><i class="fas fa-search text-danger"></i> Perplexity AI</h5>
-                        <p class="small text-muted">البحث العلمي، الوصول لمصادر موثوقة، وتلخيص الدراسات الحديثة.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="custom-card">
-                        <h5><i class="fas fa-microscope text-dark"></i> Elicit & Consensus</h5>
-                        <p class="small text-muted">البحث عن الأوراق العلمية، مقارنة الدراسات والإجابة الموثقة بالأدلة.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="custom-card">
-                        <h5><i class="fas fa-calculator text-primary"></i> Wolfram Alpha</h5>
-                        <p class="small text-muted">حل المس مسائل الرياضية، إجراء الحسابات الإحصائية، وتفسير النتائج.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="custom-card">
-                        <h5><i class="fas fa-code text-secondary"></i> GitHub Copilot</h5>
-                        <p class="small text-muted">مساعد برمجي ذكي لكتابة الأكواد، إكمال التعليمات، واكتشاف الأخطاء.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Interactive Software Cards -->
-        <section class="mb-5" data-aos="fade-up">
-            <h3 class="section-title">البرامج الإحصائية واستخدام الذكاء الاصطناعي معها</h3>
-            <p class="text-muted">اضغط على أي بطاقة لعرض النبذة الاستخدامات والتفاعل الذكي مع البرنامج:</p>
-
-            <div class="row g-4">
-                <!-- RStudio -->
-                <div class="col-md-4">
-                    <div class="custom-card interactive-card" onclick="showSoftwareModal('RStudio', 'بيئة تطوير متكاملة لغة R، وتستخدم للتحليل الإحصائي المتقدم والنماذج.', 'تحليل البيانات، الاختبارات، الرسومات، التقارير', 'كتابة الأكواد، ggplot2، وتصحيح الأخطاء', 'اكتب كود R لحساب المتوسط ورسم Histogram.')">
-                        <h4><i class="fab fa-r-project text-primary"></i> RStudio</h4>
-                        <p class="small text-muted">التحليل الإحصائي وبناء النماذج البرمجية.</p>
-                        <span class="badge bg-primary">اضغط للتفاصيل</span>
-                    </div>
-                </div>
-                <!-- SPSS -->
-                <div class="col-md-4">
-                    <div class="custom-card interactive-card" onclick="showSoftwareModal('SPSS', 'من أشهر البرامج المستخدمة في تحليل الاستبيانات واعتماده على القوائم.', 'تحليل الاستبيانات، الفرضيات، الانحدار', 'تفسير مخرجات الجداول واختيار الاختبار المناسب', 'فسر نتائج اختبار T-Test بلغة بسيطة.')">
-                        <h4><i class="fas fa-table text-danger"></i> SPSS</h4>
-                        <p class="small text-muted">تحليل الاستبيانات والعلوم الاجتماعية.</p>
-                        <span class="badge bg-danger">اضغط للتفاصيل</span>
-                    </div>
-                </div>
-                <!-- Excel -->
-                <div class="col-md-4">
-                    <div class="custom-card interactive-card" onclick="showSoftwareModal('Microsoft Excel', 'برنامج تنظيف البيانات والحسابات الأساسية والPivot Tables.', 'إدخال البيانات، الجداول المحورية، التحليل الأولي', 'كتابة المعادلات الصعبة والرسومات الذكية', 'لدي بيانات مبيعات في Excel، ما أفضل طريقة لتحليلها؟')">
-                        <h4><i class="fas fa-file-excel text-success"></i> Excel</h4>
-                        <p class="small text-muted">إدارة البيانات والتحليل الأساسي.</p>
-                        <span class="badge bg-success">اضغط للتفاصيل</span>
-                    </div>
-                </div>
-                <!-- Minitab -->
-                <div class="col-md-4">
-                    <div class="custom-card interactive-card" onclick="showSoftwareModal('Minitab', 'برنامج الإحصاء التطبيقي المتقدم لمراقبة الجودة Six Sigma.', 'مراقبة الجودة، Six Sigma، تصميم التجارب', 'تفسير خرائط التحكم والنماذج التنبؤية', 'اشرح نتائج تحليل الانحدار في Minitab بلغة سهلة.')">
-                        <h4><i class="fas fa-chart-line text-warning"></i> Minitab</h4>
-                        <p class="small text-muted">مراقبة الجودة والإحصاء الصناعي.</p>
-                        <span class="badge bg-warning text-dark">اضغط للتفاصيل</span>
-                    </div>
-                </div>
-                <!-- Power BI -->
-                <div class="col-md-4">
-                    <div class="custom-card interactive-card" onclick="showSoftwareModal('Power BI', 'أداة متقدمة لإنشاء Dashboards تفاعلية للبيانات.', 'لوحات المعلومات، متابعة مؤشرات الأداء KPI', 'إنشاء لوحة معلومات بالأوامر النصية وتلخيص التغيرات', 'أنشئ لوحة معلومات تعرض مبيعات الربع الأول.')">
-                        <h4><i class="fas fa-chart-pie text-warning"></i> Power BI</h4>
-                        <p class="small text-muted">لوحات المعلومات التفاعلية والتقارير.</p>
-                        <span class="badge bg-warning text-dark">اضغط للتفاصيل</span>
-                    </div>
-                </div>
-                <!-- Python -->
-                <div class="col-md-4">
-                    <div class="custom-card interactive-card" onclick="showSoftwareModal('Python', 'لغة البرمجة الأولى في علم البيانات والذكاء الاصطناعي.', 'التعلم الآلي، معالجة البيانات، Pandas, Matplotlib', 'كتابة الأكواد، تنظيف البيانات، وتصحيح الأخطاء', 'اكتب كود Python لتنظيف البيانات ورسم مخطط أعمدة.')">
-                        <h4><i class="fab fa-python text-info"></i> Python</h4>
-                        <p class="small text-muted">علم البيانات والذكاء الاصطناعي.</p>
-                        <span class="badge bg-info">اضغط للتفاصيل</span>
-                    </div>
-                </div>
-                <!-- SQL -->
-                <div class="col-md-4">
-                    <div class="custom-card interactive-card" onclick="showSoftwareModal('SQL', 'لغة الاستعلام عن قواعد البيانات وإدارتها.', 'استرجاع البيانات، التصفية، دمج الجداول', 'كتابة استعلامات معقدة وتحسين الأداء', 'اكتب استعلام SQL يعرض أعلى 10 عملاء من حيث المبيعات.')">
-                        <h4><i class="fas fa-database text-dark"></i> SQL</h4>
-                        <p class="small text-muted">إدارة واستخراج قواعد البيانات.</p>
-                        <span class="badge bg-dark">اضغط للتفاصيل</span>
-                    </div>
-                </div>
-                <!-- SAS -->
-                <div class="col-md-4">
-                    <div class="custom-card interactive-card" onclick="showSoftwareModal('SAS', 'نظام تحليلي احترافي للقطاعات الصحية والمالية.', 'البيانات الضخمة، التحليل الصحي، التنبؤ', 'كتابة الأكواد المتقدمة وتفسير النماذج المعقدة', 'اكتب كود SAS لتحليل الانحدار المتعدد.')">
-                        <h4><i class="fas fa-server text-secondary"></i> SAS</h4>
-                        <p class="small text-muted">تحليل البيانات الضخمة والقطاع الصحي.</p>
-                        <span class="badge bg-secondary">اضغط للتفاصيل</span>
-                    </div>
-                </div>
-                <!-- Java -->
-                <div class="col-md-4">
-                    <div class="custom-card interactive-card" onclick="showSoftwareModal('Java', 'لغة برمجة الأنظمة العامة وتطبيقات البيانات.', 'بناء الأنظمة الموزعة، معالجة البيانات', 'اكتشاف الأخطاء البرمجية وتحسين سرعة الأكواد', 'كيف نستخدم Java لمعالجة البيانات؟')">
-                        <h4><i class="fab fa-java text-danger"></i> Java</h4>
-                        <p class="small text-muted">تطوير الأنظمة والتطبيقات البرمجية.</p>
-                        <span class="badge bg-danger">اضغط للتفاصيل</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- AI Prompt Lab -->
-        <section class="mb-5" data-aos="fade-up">
-            <h3 class="section-title"><i class="fas fa-terminal"></i> قسم AI Prompt Lab</h3>
-            <p class="text-muted">مجموعة من الأوامر الجاهزة (Prompts) المحسّنة للاستخدام المباشر مع الذكاء الاصطناعي:</p>
-
-            <div class="row g-4">
-                <!-- Prompt 1 -->
-                <div class="col-md-6">
-                    <div class="prompt-card">
-                        <h5><i class="fas fa-magnifying-glass"></i> 1. تحليل البيانات الاستكشافي</h5>
-                        <p class="small text-light">الحصول على فهم أولي للبيانات واكتشاف الشذوذ.</p>
-                        <div class="prompt-text">«لدي ملف بيانات يحتوي على (اذكر نوع البيانات). قم بإجراء تحليل استكشافي للبيانات، وحدد أهم الإحصاءات الوصفية، واكتشف القيم المفقودة والقيم الشاذة، ثم اقترح أفضل طريقة لتحليل هذه البيانات.»</div>
-                        <button class="btn btn-outline-light btn-sm mt-3" onclick="copyPrompt(this)"><i class="fas fa-copy"></i> نسخ الأمر</button>
-                    </div>
-                </div>
-                <!-- Prompt 2 -->
-                <div class="col-md-6">
-                    <div class="prompt-card">
-                        <h5><i class="fas fa-broom"></i> 2. تنظيف البيانات</h5>
-                        <p class="small text-light">تجهيز البيانات ومعالجة المفقودات قبل التحليل.</p>
-                        <div class="prompt-text">«لدي مجموعة بيانات تحتوي على قيم مفقودة وبيانات مكررة. اقترح أفضل طريقة لتنظيف البيانات، واشرح سبب اختيار كل خطوة.»</div>
-                        <button class="btn btn-outline-light btn-sm mt-3" onclick="copyPrompt(this)"><i class="fas fa-copy"></i> نسخ الأمر</button>
-                    </div>
-                </div>
-                <!-- Prompt 3 -->
-                <div class="col-md-6">
-                    <div class="prompt-card">
-                        <h5><i class="fab fa-python"></i> 3. كتابة كود Python</h5>
-                        <p class="small text-light">توليد كود تحليل ورسم بياني باستخدام مكتبات Python.</p>
-                        <div class="prompt-text">«اكتب كود Python باستخدام Pandas وMatplotlib لقراءة ملف Excel، وتنظيف البيانات، وحساب المتوسط والانحراف المعياري، ثم إنشاء رسم بياني مناسب.»</div>
-                        <button class="btn btn-outline-light btn-sm mt-3" onclick="copyPrompt(this)"><i class="fas fa-copy"></i> نسخ الأمر</button>
-                    </div>
-                </div>
-                <!-- Prompt 4 -->
-                <div class="col-md-6">
-                    <div class="prompt-card">
-                        <h5><i class="fab fa-r-project"></i> 4. كتابة كود R</h5>
-                        <p class="small text-light">إنشاء كود ملخص إحصائي ورسوم ggplot2.</p>
-                        <div class="prompt-text">«اكتب كود R يقوم بقراءة البيانات، وعرض ملخص إحصائي لها، ثم إنشاء Histogram وBoxplot باستخدام ggplot2.»</div>
-                        <button class="btn btn-outline-light btn-sm mt-3" onclick="copyPrompt(this)"><i class="fas fa-copy"></i> نسخ الأمر</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Quiz AI -->
-        <section class="mb-5" data-aos="fade-up">
-            <h3 class="section-title">اختبر معلوماتك - الذكاء الاصطناعي والبرامج</h3>
-            <div class="quiz-container mb-4">
-                <h5 class="fw-bold mb-3">اختبار أدوات الذكاء الاصطناعي</h5>
-                <div id="aiQuizContainer"></div>
-            </div>
-            <div class="quiz-container">
-                <h5 class="fw-bold mb-3">اختبار البرامج الإحصائية</h5>
-                <div id="swQuizContainer"></div>
-            </div>
-        </section>
-
+  <!-- القائمة العلوية Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><i class="fa-solid fa-chart-line me-2"></i>StatVision</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+          <li class="nav-item"><a class="nav-link active" href="ai.html">الذكاء الاصطناعي</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">المشاريع</a></li>
+          <li class="nav-item"><a class="nav-link" href="quiz.html">الاختبار النهائي</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <!-- Software Modal -->
-    <div class="modal fade" id="softwareModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title fw-bold" id="swModalTitle">تفاصيل البرنامج</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body" id="swModalBody"></div>
-            </div>
-        </div>
+  <!-- الهيرو -->
+  <section class="hero-section text-center">
+    <div class="container">
+      <h1 class="hero-title mb-3">الذكاء الاصطناعي والبرمجيات الإحصائية</h1>
+      <p class="hero-subtitle mb-4">كيف يدمج الباحثون والمحللون بين أدوات البرمجة ونماذج الذكاء الاصطناعي لتفسير البيانات</p>
     </div>
+  </section>
 
-    <button id="btn-back-to-top" class="btn-back-to-top"><i class="fas fa-arrow-up"></i></button>
+  <!-- المحتوى الرئيسي -->
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="row g-4">
 
-    <footer class="text-center">
-        <div class="container">
-            <p class="mb-1">منصة StatVision التعليمية - قسم الذكاء الاصطناعي والبرامج</p>
-            <small>© 2026 جميع الحقوق محفوظة.</small>
+        <div class="col-md-6">
+          <div class="custom-card p-4">
+            <h3 class="h4 fw-bold mb-3 text-primary"><i class="fa-brands fa-r-project me-2"></i>لغة R والتحليل الإحصائي</h3>
+            <p class="text-muted">تُعتبر لغة R من أقوى الأدوات المستخدمة في التحليل الإحصائي وبناء النماذج التنبؤية ورسم المنحنيات والأشكال البيانية المعقدة مثل الهرم السكاني ومخططات ضبط الجودة.</p>
+          </div>
         </div>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/quiz.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            renderQuiz('aiQuizContainer', quizData.aiQuiz);
-            renderQuiz('swQuizContainer', quizData.swQuiz);
-        });
-    </script>
+        <div class="col-md-6">
+          <div class="custom-card p-4">
+            <h3 class="h4 fw-bold mb-3 text-info"><i class="fa-solid fa-robot me-2"></i>الذكاء الاصطناعي التوليدي</h3>
+            <p class="text-muted">يُساعد الذكاء الاصطناعي التوليدي في تسريع تسطير الكود الإحصائي، وتلخيص المخرجات المعقدة، وبناء خوارزميات التعلم الآلي للتنبؤ باتجاهات البيانات المستقبلية.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- الفوتر -->
+  <footer class="bg-white border-top py-4 text-center mt-5">
+    <div class="container">
+      <p class="text-muted small mb-0">جميع الحقوق محفوظة © StatVision 2026</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

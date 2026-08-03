@@ -3,21 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StatVision | الذكاء الاصطناعي والبرامج</title>
+  <title>StatVision | الذكاء الاصطناعي والبرامج الإحصائية</title>
   
-  <!-- Bootstrap 5 RTL CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
-  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- ملف التنسيقات الخاص بك -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- شريط تقدم التمرير -->
   <div id="progress-bar"></div>
 
-  <!-- القائمة العلوية Navbar -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html"><i class="fa-solid fa-chart-line me-2"></i>StatVision</a>
@@ -26,47 +22,134 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
-          <li class="nav-item"><a class="nav-link active" href="ai.html">الذكاء الاصطناعي</a></li>
-          <li class="nav-item"><a class="nav-link" href="projects.html">المشاريع</a></li>
-          <li class="nav-item"><a class="nav-link" href="quiz.html">الاختبار النهائي</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">علم الإحصاء والرسومات</a></li>
+          <li class="nav-item"><a class="nav-link active" href="ai.html">الذكاء الاصطناعي والبرامج</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">المشاريع والتطبيقات</a></li>
+          <li class="nav-item"><a class="nav-link text-primary fw-bold" href="quiz.html">الاختبار النهائي</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- الهيرو -->
+  <!-- Hero Section -->
   <section class="hero-section text-center">
     <div class="container">
       <h1 class="hero-title mb-3">الذكاء الاصطناعي والبرمجيات الإحصائية</h1>
-      <p class="hero-subtitle mb-4">كيف يدمج الباحثون والمحللون بين أدوات البرمجة ونماذج الذكاء الاصطناعي لتفسير البيانات</p>
+      <p class="text-muted mb-4">كيف يدمج الباحثون والمحللون بين أدوات البرمجة ونماذج الذكاء الاصطناعي لتفسير البيانات</p>
     </div>
   </section>
 
-  <!-- المحتوى الرئيسي -->
+  <!-- الجزء الثالث: الذكاء الاصطناعي -->
   <section class="py-5">
-    <div class="container py-4">
-      <div class="row g-4">
-
-        <div class="col-md-6">
-          <div class="custom-card p-4">
-            <h3 class="h4 fw-bold mb-3 text-primary"><i class="fa-brands fa-r-project me-2"></i>لغة R والتحليل الإحصائي</h3>
-            <p class="text-muted">تُعتبر لغة R من أقوى الأدوات المستخدمة في التحليل الإحصائي وبناء النماذج التنبؤية ورسم المنحنيات والأشكال البيانية المعقدة مثل الهرم السكاني ومخططات ضبط الجودة.</p>
+    <div class="container">
+      <div class="row align-items-center mb-5">
+        <div class="col-md-7">
+          <h2 class="fw-bold mb-3">العلاقة بين الإحصاء والذكاء الاصطناعي</h2>
+          <p class="text-muted">الذكاء الاصطناعي (AI) يُمكّن الأنظمة من محاكاة القدرات الذهنية للبشر كالتعلم، الاستنتاج، وحل المشكلات. يعتمد الذكاء الاصطناعي بشكل أساسي على البيانات، ولذا يُعد **الإحصاء هو الأساس النظري والتطبيقي** الذي يُبنى عليه الذكاء الاصطناعي.</p>
+          <div class="alert alert-warning border-0 rounded-3">
+            <i class="fa-solid fa-triangle-exclamation me-2"></i><strong>هل يغني AI عن الإحصائي؟</strong> لا، فالذكاء الاصطناعي أداة مساعدة قوية، لكن التفكير العلمي، التحقق من صحة البيانات، وتفسير النتائج يبقى دائماً بمسؤولية المحلل الإحصائي.
           </div>
         </div>
-
-        <div class="col-md-6">
-          <div class="custom-card p-4">
-            <h3 class="h4 fw-bold mb-3 text-info"><i class="fa-solid fa-robot me-2"></i>الذكاء الاصطناعي التوليدي</h3>
-            <p class="text-muted">يُساعد الذكاء الاصطناعي التوليدي في تسريع تسطير الكود الإحصائي، وتلخيص المخرجات المعقدة، وبناء خوارزميات التعلم الآلي للتنبؤ باتجاهات البيانات المستقبلية.</p>
+        <div class="col-md-5">
+          <div class="custom-card p-4 bg-light">
+            <h5 class="fw-bold mb-3 text-primary"><i class="fa-solid fa-robot me-2"></i>أبرز أدوات الذكاء الاصطناعي</h5>
+            <ul class="list-unstyled text-muted small lh-lg mb-0">
+              <li><strong>ChatGPT / Claude / Gemini:</strong> تفسير النتائج، كتابة أكواد Python وR وSQL، وتلخيص الأبحاث.</li>
+              <li><strong>NotebookLM / Perplexity AI:</strong> تلخيص المراجع والأوراق العلمية الموثوقة.</li>
+              <li><strong>Elicit / Consensus:</strong> استخراج النتائج والمقارنة بين الدراسات والأوراق البحثية.</li>
+              <li><strong>Wolfram Alpha:</strong> إجراء الحسابات والمسائل الرياضية المعقدة.</li>
+              <li><strong>GitHub Copilot:</strong> المساعدة في إكمال وتصحيح الأكواد البرمجية.</li>
+            </ul>
           </div>
         </div>
-
       </div>
+
+      <!-- الجزء الرابع: البرامج الإحصائية -->
+      <div class="text-center mb-5">
+        <h2 class="section-title">الجزء الرابع: البرامج الإحصائية واستخدام AI معها</h2>
+      </div>
+
+      <div class="row g-4 mb-5">
+        <!-- RStudio -->
+        <div class="col-md-6 col-lg-4">
+          <div class="custom-card">
+            <h5 class="fw-bold text-primary"><i class="fa-brands fa-r-project me-2"></i>RStudio & R</h5>
+            <p class="text-muted small">بيئة تطوير متكاملة للتحليل الإحصائي وبناء النماذج ورسم الأشكال التفاعلية بـ ggplot2.</p>
+            <div class="bg-light p-2 rounded small text-dark"><strong>مثال AI Prompt:</strong> "اكتب كود R لحساب المتوسط والانحراف المعياري ورسم Histogram"</div>
+          </div>
+        </div>
+
+        <!-- SPSS -->
+        <div class="col-md-6 col-lg-4">
+          <div class="custom-card">
+            <h5 class="fw-bold text-primary"><i class="fa-solid fa-square-poll-vertical me-2"></i>SPSS</h5>
+            <p class="text-muted small">أشهر برنامج لتحليل الاستبيانات، اختبارات الفرضيات، والانحدار عبر القوائم الشجرية.</p>
+            <div class="bg-light p-2 rounded small text-dark"><strong>مثال AI Prompt:</strong> "فسر نتائج اختبار T-Test بأسلوب أكاديمي بسيط"</div>
+          </div>
+        </div>
+
+        <!-- Minitab -->
+        <div class="col-md-6 col-lg-4">
+          <div class="custom-card">
+            <h5 class="fw-bold text-primary"><i class="fa-solid fa-chart-area me-2"></i>Minitab</h5>
+            <p class="text-muted small">متخصص في الإحصاء التطبيقي، مراقبة ضبط الجودة، وستة سيجما (Six Sigma).</p>
+            <div class="bg-light p-2 rounded small text-dark"><strong>مثال AI Prompt:</strong> "اشرح نتائج تحليل الانحدار ومخططات ضبط الجودة من Minitab"</div>
+          </div>
+        </div>
+
+        <!-- Python -->
+        <div class="col-md-6 col-lg-4">
+          <div class="custom-card">
+            <h5 class="fw-bold text-primary"><i class="fa-brands fa-python me-2"></i>Python</h5>
+            <p class="text-muted small">لغة البرمجة الأكثر استخداماً في التعلم الآلي، معالجة البيانات ضخمة الحجم وPandas.</p>
+            <div class="bg-light p-2 rounded small text-dark"><strong>مثال AI Prompt:</strong> "اكتب كود Python لتنظيف البيانات ورسم مخطط أعمدة"</div>
+          </div>
+        </div>
+
+        <!-- Excel -->
+        <div class="col-md-6 col-lg-4">
+          <div class="custom-card">
+            <h5 class="fw-bold text-primary"><i class="fa-solid fa-file-excel me-2"></i>Microsoft Excel</h5>
+            <p class="text-muted small">إدخال البيانات وتنظيمها، الجداول المحورية (Pivot Tables)، والتحليلات الأساسية.</p>
+            <div class="bg-light p-2 rounded small text-dark"><strong>مثال AI Prompt:</strong> "لدي بيانات مبيعات، اقترح صيغ المعادلة والأشكال المناسبة"</div>
+          </div>
+        </div>
+
+        <!-- Power BI & SQL -->
+        <div class="col-md-6 col-lg-4">
+          <div class="custom-card">
+            <h5 class="fw-bold text-primary"><i class="fa-solid fa-database me-2"></i>Power BI & SQL</h5>
+            <p class="text-muted small">بناء Dashboards لوحات معلومات تفاعلية واسترجاع البيانات من قواعد البيانات الضخمة.</p>
+            <div class="bg-light p-2 rounded small text-dark"><strong>مثال AI Prompt:</strong> "اكتب استعلام SQL يعرض أعلى 10 عملاء مبيعات"</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Prompt Lab -->
+      <div class="custom-card p-4 bg-dark text-white rounded-4">
+        <h4 class="fw-bold text-warning mb-3"><i class="fa-solid fa-flask me-2"></i>معمل الأوامر (AI Prompt Lab)</h4>
+        <p class="text-light small mb-4">انسخي الأوامر التالية وجربيها بنفسك في ChatGPT أو Claude لتحصيل أفضل النتائج الإحصائية:</p>
+        
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="p-3 bg-secondary bg-opacity-25 rounded border border-secondary">
+              <h6 class="text-info fw-bold">1. أمر تحليل البيانات الاستكشافي:</h6>
+              <p class="small mb-0 text-light">«لدي ملف بيانات يحتوي على [اذكر البيانات]. قم بإجراء تحليل استكشافي للبيانات، وحدد أهم الإحصاءات الوصفية، واكتشف القيم المفقودة والقيم الشاذة، ثم اقترح أفضل طريقة لتحليل هذه البيانات.»</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 bg-secondary bg-opacity-25 rounded border border-secondary">
+              <h6 class="text-info fw-bold">2. أمر اختيار الاختبار الإحصائي:</h6>
+              <p class="small mb-0 text-light">«لدي بيانات تتضمن [المتغيرات] وهدفي هو [الهدف]. ما الاختبار الإحصائي الأنسب؟ ولماذا؟»</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- الفوتر -->
+  <!-- Footer -->
   <footer class="bg-white border-top py-4 text-center mt-5">
     <div class="container">
       <p class="text-muted small mb-0">جميع الحقوق محفوظة © StatVision 2026</p>

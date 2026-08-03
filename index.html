@@ -1,118 +1,351 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StatVision | أساسيات علم الإحصاء والبيانات</title>
-  
-  <!-- Bootstrap 5 RTL CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
-  
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- ملف التنسيقات الخاص بك -->
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StatVision | أساسيات علم الإحصاء والبيانات</title>
+    <!-- Bootstrap 5 RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- شريط تقدم التمرير -->
-  <div id="progress-bar"></div>
+    <!-- Progress Bar -->
+    <div id="progress-bar"></div>
 
-  <!-- القائمة العلوية Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html"><i class="fa-solid fa-chart-line me-2"></i>StatVision</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="index.html">الرئيسية</a></li>
-          <li class="nav-item"><a class="nav-link" href="ai.html">الذكاء الاصطناعي</a></li>
-          <li class="nav-item"><a class="nav-link" href="projects.html">المشاريع</a></li>
-          <li class="nav-item"><a class="nav-link" href="quiz.html">الاختبار النهائي</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-chart-line"></i> StatVision</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">علم الإحصاء والرسومات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ai.html">الذكاء الاصطناعي والبرامج</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">المشاريع والاختبار النهائي</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-  <!-- الهيرو / الصفحة الرئيسية -->
-  <section class="hero-section text-center">
-    <div class="container">
-      <h1 class="hero-title mb-3">أساسيات علم الإحصاء والبيانات</h1>
-      <p class="hero-subtitle mb-4">علم الإحصاء والرسومات، الذكاء الاصطناعي والبرامج، المشاريع والاختبار النهائي</p>
-      <a href="#about" class="btn btn-primary btn-lg rounded-pill px-4 shadow-sm">ابدأ الاستكشاف <i class="fa-solid fa-arrow-down ms-2"></i></a>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container" data-aos="fade-up">
+            <h1 class="hero-title text-primary mb-3">مرحبًا بك في StatVision</h1>
+            <p class="hero-subtitle mb-4">رحلة تفاعلية تجمع بين عراقة علم الإحصاء وحداثة تقنيات الذكاء الاصطناعي</p>
+            <a href="#about-section" class="btn btn-primary btn-lg rounded-pill px-4 me-2"><i class="fas fa-play"></i> ابدأ الرحلة</a>
+        </div>
+    </section>
 
-  <!-- قسم الأقسام الرئيسية -->
-  <section id="about" class="py-5">
-    <div class="container py-4">
-      <div class="text-center mb-5">
-        <h2 class="section-title">محاور المنصة</h2>
-        <p class="text-muted">اختر المحور الذي تريد البدء بتعلمه اليوم</p>
-      </div>
+    <div class="container my-5">
 
-      <div class="row g-4">
-        <!-- بطاقة الإحصاء والرسومات -->
-        <div class="col-md-4">
-          <div class="custom-card text-center p-4">
-            <div class="mb-3 text-primary fs-1"><i class="fa-solid fa-chart-pie"></i></div>
-            <h3 class="h5 fw-bold mb-3">علم الإحصاء والرسومات</h3>
-            <p class="text-muted small">تعرف على المفاهيم الإحصائية الأساسية وكيفية تمثيل البيانات بصرياً باستخدام الرسوم البيانية المختلفة.</p>
-          </div>
+        <!-- Intro Section -->
+        <section id="about-section" class="mb-5" data-aos="fade-up">
+            <div class="custom-card">
+                <h3 class="section-title text-primary">نبذة عن المنصة</h3>
+                <p class="lead">مرحبًا بك في StatVision، منصة تعليمية تفاعلية تهدف إلى تبسيط مفاهيم علم الإحصاء وإظهار دوره في بناء تقنيات الذكاء الاصطناعي. ستتعرف خلال هذه الرحلة على أساسيات الإحصاء، وكيفية تحليل البيانات، وأهم الرسومات البيانية، ثم تنتقل إلى اكتشاف كيف أصبح الذكاء الاصطناعي شريكًا أساسيًا للمحلل الإحصائي.</p>
+            </div>
+        </section>
+
+        <!-- What is Statistics -->
+        <section class="mb-5" data-aos="fade-up">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3 class="section-title">ما هو علم الإحصاء؟</h3>
+                    <p>الإحصاء هو علم يهتم بجمع البيانات، وتنظيمها، وتحليلها، وتفسيرها بهدف تحويل المعلومات الخام إلى نتائج واضحة تساعد على فهم الظواهر واتخاذ القرارات المبنية على الأدلة.</p>
+                    <p class="fw-bold">ويُستخدم الإحصاء في مختلف المجالات، مثل:</p>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="badge bg-primary fs-6"><i class="fas fa-user-md"></i> الطب</span>
+                        <span class="badge bg-secondary fs-6"><i class="fas fa-coins"></i> الاقتصاد</span>
+                        <span class="badge bg-success fs-6"><i class="fas fa-briefcase"></i> الأعمال</span>
+                        <span class="badge bg-info fs-6"><i class="fas fa-graduation-cap"></i> التعليم</span>
+                        <span class="badge bg-warning text-dark fs-6"><i class="fas fa-cogs"></i> الهندسة</span>
+                        <span class="badge bg-dark fs-6"><i class="fas fa-leaf"></i> البيئة</span>
+                        <span class="badge bg-danger fs-6"><i class="fas fa-brain"></i> الذكاء الاصطناعي</span>
+                    </div>
+                    <div class="quote-box">اليوم، أصبح الإحصاء أحد أهم العلوم الذي يُعتمد عليه لاتخاذ قرارات دقيقة وفعالة.</div>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <div class="custom-card bg-light text-center">
+                        <i class="fas fa-chart-pie fa-5x text-secondary mb-3"></i>
+                        <h4>تحويل البيانات إلى معرفة</h4>
+                        <p class="text-muted">بدون الإحصاء البيانات مجرد أرقام، وبالإحصاء تتحول إلى رؤى استراتيجية.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Study Statistics -->
+        <section class="mb-5" data-aos="fade-up">
+            <div class="custom-card">
+                <h3 class="section-title">لماذا ندرس الإحصاء؟</h3>
+                <p>تخيل وجود آلاف البيانات أمامك... بدون الإحصاء ستكون مجرد أرقام. أما باستخدام الإحصاء فإن هذه الأرقام تتحول إلى معلومات يمكن فهمها والاستفادة منها.</p>
+                <div class="row g-3 mt-2">
+                    <div class="col-md-4"><div class="p-3 border rounded bg-light"><i class="fas fa-check text-success"></i> جمع البيانات بطريقة صحيحة</div></div>
+                    <div class="col-md-4"><div class="p-3 border rounded bg-light"><i class="fas fa-check text-success"></i> تنظيم البيانات وتنسيقها</div></div>
+                    <div class="col-md-4"><div class="p-3 border rounded bg-light"><i class="fas fa-check text-success"></i> تحليل النتائج بدقة</div></div>
+                    <div class="col-md-4"><div class="p-3 border rounded bg-light"><i class="fas fa-check text-success"></i> اكتشاف الأنماط المخفية</div></div>
+                    <div class="col-md-4"><div class="p-3 border rounded bg-light"><i class="fas fa-check text-success"></i> التنبؤ بالمستقبل</div></div>
+                    <div class="col-md-4"><div class="p-3 border rounded bg-light"><i class="fas fa-check text-success"></i> دعم اتخاذ القرار</div></div>
+                </div>
+                <p class="mt-3 text-muted">ولهذا السبب يعتمد عليه الباحثون والشركات والجهات الحكومية في أعمالهم اليومية.</p>
+            </div>
+        </section>
+
+        <!-- Branches of Statistics -->
+        <section class="mb-5" data-aos="fade-up">
+            <h3 class="section-title">أقسام علم الإحصاء</h3>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="custom-card border-start-primary">
+                        <h4><i class="fas fa-table text-primary"></i> الإحصاء الوصفي (Descriptive Statistics)</h4>
+                        <p>يهتم الإحصاء الوصفي بوصف البيانات الموجودة لدينا دون محاولة التعميم على مجتمع أكبر.</p>
+                        <ul>
+                            <li>تنظيم البيانات.</li>
+                            <li>تلخيصها.</li>
+                            <li>عرضها باستخدام الجداول والرسومات البيانية.</li>
+                            <li>حساب المتوسطات ومقاييس التشتت.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="custom-card border-start-secondary">
+                        <h4><i class="fas fa-project-diagram text-secondary"></i> الإحصاء الاستدلالي (Inferential Statistics)</h4>
+                        <p>إذا كانت لدينا عينة صغيرة فقط... فكيف يمكننا معرفة خصائص المجتمع بالكامل؟ هنا يأتي دور الإحصاء الاستدلالي. يعتمد على دراسة عينة ممثلة للمجتمع، ثم استخدام النتائج للتوصل إلى استنتاجات عن المجتمع بأكمله.</p>
+                        <div class="quote-box">
+                            <strong>مثال:</strong> بدلًا من سؤال جميع طلاب الجامعة عن مستوى رضاهم عن الخدمات، يمكن اختيار عينة مكونة من 500 طالب ثم استخدام نتائجهم لتقدير رأي جميع طلاب الجامعة.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Measures Section -->
+        <section class="mb-5" data-aos="fade-up">
+            <h3 class="section-title">المقاييس الإحصائية الأساسية</h3>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="custom-card">
+                        <h4 class="text-primary mb-3">مقاييس النزعة المركزية</h4>
+                        <p class="text-muted">أحيانًا نحتاج إلى تمثيل مجموعة كبيرة من البيانات برقم واحد فقط.</p>
+                        <div class="accordion" id="centralTendencyAcc">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1">المتوسط الحسابي (Mean)</button></h2>
+                                <div id="c1" class="accordion-collapse collapse show" data-bs-parent="#centralTendencyAcc">
+                                    <div class="accordion-body">هو مجموع جميع القيم مقسومًا على عددها. يساعدنا في معرفة المستوى العام للبيانات.<br><strong>مثال:</strong> درجات الطلاب (70 - 80 - 90) -> المتوسط = 80.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c2">الوسيط (Median)</button></h2>
+                                <div id="c2" class="accordion-collapse collapse" data-bs-parent="#centralTendencyAcc">
+                                    <div class="accordion-body">هو القيمة التي تقع في منتصف البيانات بعد ترتيبها تصاعديًا. ويتميز بأنه لا يتأثر كثيرًا بالقيم المرتفعة أو المنخفضة جدًا.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c3">المنوال (Mode)</button></h2>
+                                <div id="c3" class="accordion-collapse collapse" data-bs-parent="#centralTendencyAcc">
+                                    <div class="accordion-body">هو أكثر قيمة تكررت داخل البيانات. ويُستخدم كثيرًا مع البيانات التصنيفية.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="custom-card">
+                        <h4 class="text-secondary mb-3">مقاييس التشتت</h4>
+                        <p class="text-muted">لا يكفي معرفة متوسط البيانات فقط... بل يجب أيضًا معرفة مدى انتشارها.</p>
+                        <div class="accordion" id="dispersionAcc">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#d1">المدى (Range)</button></h2>
+                                <div id="d1" class="accordion-collapse collapse show" data-bs-parent="#dispersionAcc">
+                                    <div class="accordion-body">هو الفرق بين أكبر قيمة وأصغر قيمة. كلما زاد المدى دل ذلك على وجود اختلاف أكبر بين القيم.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#d2">التباين (Variance)</button></h2>
+                                <div id="d2" class="accordion-collapse collapse" data-bs-parent="#dispersionAcc">
+                                    <div class="accordion-body">يقيس مقدار اختلاف البيانات عن المتوسط الحسابي. كلما ارتفع التباين زادت درجة تشتت البيانات.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#d3">الانحراف المعياري (Standard Deviation)</button></h2>
+                                <div id="d3" class="accordion-collapse collapse" data-bs-parent="#dispersionAcc">
+                                    <div class="accordion-body">يعد أكثر مقاييس التشتت استخدامًا. ويوضح مدى ابتعاد القيم عن المتوسط الحسابي بطريقة سهلة التفسير.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Basic Concepts Grid -->
+        <section class="mb-5" data-aos="fade-up">
+            <h3 class="section-title">المفاهيم الأساسية في الإحصاء</h3>
+            <div class="row g-4 text-center">
+                <div class="col-md-3">
+                    <div class="custom-card">
+                        <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                        <h5>المجتمع (Population)</h5>
+                        <p class="small text-muted">جميع العناصر أو الأفراد الذين نرغب في دراستهم.<br><strong>مثال:</strong> جميع طلاب الجامعة.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="custom-card">
+                        <i class="fas fa-user-friends fa-3x text-info mb-3"></i>
+                        <h5>العينة (Sample)</h5>
+                        <p class="small text-muted">جزء من المجتمع يتم اختياره لتمثيله.<br><strong>مثال:</strong> 500 طالب من الجامعة.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="custom-card">
+                        <i class="fas fa-database fa-3x text-success mb-3"></i>
+                        <h5>البيانات (Data)</h5>
+                        <p class="small text-muted">المعلومات التي يتم جمعها للإجابة عن سؤال معين (أرقام، قياسات، ملاحظات).</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="custom-card">
+                        <i class="fas fa-sliders-h fa-3x text-warning mb-3"></i>
+                        <h5>المتغيرات (Variables)</h5>
+                        <p class="small text-muted">الصفات التي تختلف بين الأفراد (مثل: العمر، الطول، الوزن، المعدل الدراسي).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz 1 -->
+        <section class="mb-5" data-aos="fade-up">
+            <h3 class="section-title">اختبر فهمك - مفاهيم الإحصاء</h3>
+            <div class="quiz-container">
+                <div id="statQuizContainer"></div>
+            </div>
+        </section>
+
+        <!-- Section 2: Data Visualization Engine -->
+        <section class="mb-5" data-aos="fade-up">
+            <h2 class="text-primary fw-bold mb-3"><i class="fas fa-chart-bar"></i> الجزء الثاني: الرسومات البيانية (Data Visualization)</h2>
+            <p class="lead">رؤية البيانات بطريقة أوضح. بعد جمع البيانات وتنظيمها، تأتي الخطوة التالية وهي عرضها بصريًا.</p>
+            <div class="quote-box mb-4">«تذكر: اختيار الرسم البياني المناسب لا يقل أهمية عن تحليل البيانات نفسه.»</div>
+
+            <!-- Charts Showcase Grid -->
+            <div class="row g-4">
+                <!-- Histogram -->
+                <div class="col-lg-6">
+                    <div class="custom-card">
+                        <h4 class="text-primary"><i class="fas fa-chart-column"></i> المدرج التكراري (Histogram)</h4>
+                        <p class="small">رسم بياني يستخدم لعرض توزيع البيانات الرقمية داخل فئات متتالية لمعرفة أماكن تركز القيم والشكل العام للتوزيع.</p>
+                        <canvas id="histogramChart" height="200"></canvas>
+                        <div class="mt-3 bg-light p-2 rounded">
+                            <label class="form-label small fw-bold">💡 نشاط تفاعلي: عدد الفئات (Bins): <span id="binValue">5</span></label>
+                            <input type="range" class="form-range" min="3" max="7" value="5" onchange="updateHistogramBins(this.value)">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bar Chart -->
+                <div class="col-lg-6">
+                    <div class="custom-card">
+                        <h4 class="text-info"><i class="fas fa-chart-bar"></i> مخطط الأعمدة (Bar Chart)</h4>
+                        <p class="small">يستخدم لمقارنة القيم بين فئات مختلفة باستخدام أعمدة منفصلة.<br><strong>مثال:</strong> عدد الموظفين في الفروع.</p>
+                        <canvas id="barChart" height="200"></canvas>
+                    </div>
+                </div>
+
+                <!-- Pie Chart -->
+                <div class="col-lg-6">
+                    <div class="custom-card">
+                        <h4 class="text-success"><i class="fas fa-chart-pie"></i> المخطط الدائري (Pie Chart)</h4>
+                        <p class="small">يوضح كيفية تقسيم الكل إلى أجزاء، بحيث يمثل كل جزء نسبة مئوية من الإجمالي.<br><strong>مثال:</strong> المشروب المفضل لدى الطلاب.</p>
+                        <canvas id="pieChart" height="200"></canvas>
+                    </div>
+                </div>
+
+                <!-- Line Chart -->
+                <div class="col-lg-6">
+                    <div class="custom-card">
+                        <h4 class="text-warning"><i class="fas fa-chart-line"></i> الرسم الخطي (Line Chart)</h4>
+                        <p class="small">يعرض تغير البيانات مع مرور الزمن باستخدام نقاط متصلة بخطوط.<br><strong>مثال:</strong> عدد زوار الموقع الإلكتروني شهريًا.</p>
+                        <canvas id="lineChart" height="200"></canvas>
+                    </div>
+                </div>
+
+                <!-- Scatter Plot -->
+                <div class="col-lg-12">
+                    <div class="custom-card">
+                        <h4 class="text-danger"><i class="fas fa-braille"></i> مخطط التشتت (Scatter Plot)</h4>
+                        <p class="small">يعرض العلاقة والارتباط بين متغيرين (مثل ساعات المذاكرة مقابل درجات الطلاب).</p>
+                        <canvas id="scatterChart" height="120"></canvas>
+                        <button class="btn btn-outline-danger btn-sm mt-3" onclick="toggleTrendline()"><i class="fas fa-route"></i> إظهار/إخفاء خط الاتجاه</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guide Table -->
+            <div class="custom-card mt-4">
+                <h4 class="fw-bold mb-3">كيف أختار الرسم البياني المناسب؟</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped text-center align-middle">
+                        <thead class="table-primary">
+                            <tr><th>إذا أردت...</th><th>استخدم...</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>مقارنة بين فئات</td><td>مخطط الأعمدة</td></tr>
+                            <tr><td>عرض نسب مئوية</td><td>المخطط الدائري</td></tr>
+                            <tr><td>متابعة التغير مع الزمن</td><td>الرسم الخطي</td></tr>
+                            <tr><td>معرفة توزيع البيانات</td><td>المدرج التكراري</td></tr>
+                            <tr><td>دراسة العلاقة بين متغيرين</td><td>مخطط التشتت</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz 2 -->
+        <section class="mb-5" data-aos="fade-up">
+            <h3 class="section-title">اختبر معلوماتك - الرسومات البيانية</h3>
+            <div class="quiz-container">
+                <div id="vizQuizContainer"></div>
+            </div>
+        </section>
+
+        <!-- Did You Know -->
+        <div class="alert alert-info rounded-3 shadow-sm" data-aos="fade-up">
+            <h5 class="fw-bold"><i class="fas fa-lightbulb"></i> هل تعلم؟</h5>
+            <p class="mb-0">أغلب علماء البيانات يقضون وقتًا طويلًا في تصور البيانات قبل البدء في بناء النماذج الإحصائية أو نماذج الذكاء الاصطناعي، لأن الرسومات البيانية تكشف كثيرًا من الأنماط التي قد لا تظهر عند قراءة الجداول فقط.</p>
         </div>
 
-        <!-- بطاقة الذكاء الاصطناعي -->
-        <div class="col-md-4">
-          <div class="custom-card text-center p-4">
-            <div class="mb-3 text-info fs-1"><i class="fa-solid fa-brain"></i></div>
-            <h3 class="h5 fw-bold mb-3">الذكاء الاصطناعي والبرامج</h3>
-            <p class="text-muted small">استكشف كيف يتقاطع التحليل الإحصائي مع أدوات الذكاء الاصطناعي والبرمجيات الحديثة كـ R و Python.</p>
-            <a href="ai.html" class="btn btn-outline-primary btn-sm rounded-pill mt-2">عرض المحور</a>
-          </div>
+    </div>
+
+    <!-- Floating Back to Top Button -->
+    <button id="btn-back-to-top" class="btn-back-to-top" title="العودة للأعلى"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-1">منصة StatVision التعليمية - رحلة بين الإحصاء والذكاء الاصطناعي</p>
+            <small>© 2026 جميع الحقوق محفوظة.</small>
         </div>
+    </footer>
 
-        <!-- بطاقة المشاريع والاختبار -->
-        <div class="col-md-4">
-          <div class="custom-card text-center p-4">
-            <div class="mb-3 text-success fs-1"><i class="fa-solid fa-laptop-code"></i></div>
-            <h3 class="h5 fw-bold mb-3">المشاريع والاختبارات</h3>
-            <p class="text-muted small">تطبيقات عملية ومشاريع إحصائية مع اختبار تفاعلي لقياس مدى استيعابك للمفاهيم.</p>
-            <a href="projects.html" class="btn btn-outline-primary btn-sm rounded-pill mt-2">استعراض المشاريع</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- اقتباس / رؤية -->
-  <section class="bg-light py-5">
-    <div class="container py-3">
-      <div class="quote-box text-center mx-auto" style="max-width: 800px;">
-        <p class="mb-0 fs-5">"البيانات هي النفط الجديد، والإحصاء والذكاء الاصطناعي هما المحركان اللذان يحولانها إلى معرفة وقرارات ذكية."</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- الفوتر -->
-  <footer class="bg-white border-top py-4 text-center mt-5">
-    <div class="container">
-      <p class="text-muted small mb-0">جميع الحقوق محفوظة © StatVision 2026</p>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // شريط تقدم التمرير
-    window.onscroll = function() {
-      let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      let scrolled = (winScroll / height) * 100;
-      document.getElementById("progress-bar").style.width = scrolled + "%";
-    };
-  </script>
+    <!-- JS Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderQuiz('statQuizContainer', quizData.statQuiz);
+            renderQuiz('vizQuizContainer', quizData.vizQuiz);
+        });
+    </script>
 </body>
 </html>

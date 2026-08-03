@@ -3,21 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StatVision | المشاريع والتطبيقات</title>
+  <title>StatVision | المشاريع التطبيقية</title>
   
-  <!-- Bootstrap 5 RTL CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
-  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- ملف التنسيقات الخاص بك -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- شريط تقدم التمرير -->
   <div id="progress-bar"></div>
 
-  <!-- القائمة العلوية Navbar -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html"><i class="fa-solid fa-chart-line me-2"></i>StatVision</a>
@@ -29,43 +25,78 @@
           <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
           <li class="nav-item"><a class="nav-link" href="ai.html">الذكاء الاصطناعي</a></li>
           <li class="nav-item"><a class="nav-link active" href="projects.html">المشاريع</a></li>
-          <li class="nav-item"><a class="nav-link" href="quiz.html">الاختبار النهائي</a></li>
+          <li class="nav-item"><a class="nav-link text-primary fw-bold" href="quiz.html">الاختبار النهائي</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- الهيرو -->
+  <!-- Hero Section -->
   <section class="hero-section text-center">
     <div class="container">
-      <h1 class="hero-title mb-3">المشاريع التطبيقية</h1>
-      <p class="hero-subtitle mb-4">نماذج ومشاريع إحصائية وتفاعلية تم تطويرها للربط بين النظرية والتطبيق</p>
+      <h1 class="hero-title mb-3">المشاريع والتطبيقات الإحصائية</h1>
+      <p class="text-muted mb-4">نماذج برمجية وإحصائية غنية تربط النظرية بالتطبيق الفعلي</p>
     </div>
   </section>
 
-  <!-- المحتوى الرئيسي -->
+  <!-- Main Content -->
   <section class="py-5">
-    <div class="container py-4">
+    <div class="container py-3">
       <div class="row g-4">
 
-        <div class="col-md-4">
+        <!-- Project 1: R Code for Population Pyramid -->
+        <div class="col-md-12">
           <div class="custom-card p-4">
-            <h3 class="h5 fw-bold mb-2">لوحات التحكم بالإحصاء</h3>
-            <p class="text-muted small">عرض تفاعلي لتحليل البيانات الديموغرافية والرسوم البيانية الهرمية.</p>
+            <h3 class="h4 fw-bold text-primary mb-3"><i class="fa-brands fa-r-project me-2"></i>1. رسم الهرم السكاني التفاعلي بلغة R</h3>
+            <p class="text-muted">استخدام مكتبة <code>ggplot2</code> لتصميم هرم سكاني مقلوب أو عالي الدقة يوضح توزيع الفئات العمرية بين الذكور والإناث:</p>
+            
+            <pre class="bg-dark text-light p-3 rounded-3 dir-ltr text-start" style="font-family: monospace;">
+# تحميل المكتبات المطلوبة
+library(ggplot2)
+
+# إنشاء بيانات افتراضية للهرم السكاني
+age_groups <- factor(c("0-14", "15-24", "25-54", "55-64", "65+"), levels = c("0-14", "15-24", "25-54", "55-64", "65+"))
+males <- c(-30, -25, -40, -15, -8)
+females <- c(28, 24, 38, 16, 10)
+
+df <- data.frame(age_groups, males, females)
+
+# رسم الهرم السكاني
+ggplot(df) +
+  geom_bar(aes(x = age_groups, y = males), stat = "identity", fill = "#2563EB") +
+  geom_bar(aes(x = age_groups, y = females), stat = "identity", fill = "#06B6D4") +
+  coord_flip() +
+  labs(title = "Population Pyramid", x = "Age Group", y = "Population Count") +
+  theme_minimal()
+            </pre>
           </div>
         </div>
 
-        <div class="col-md-4">
+        <!-- Project 2: Quality Control Charts -->
+        <div class="col-md-6">
           <div class="custom-card p-4">
-            <h3 class="h5 fw-bold mb-2">نماذج الانحدار التنبؤية</h3>
-            <p class="text-muted small">مشروع يطبق معادلات الانحدار الخطي لتوقع القيم بناءً على المتغيرات المستقلة.</p>
+            <h3 class="h5 fw-bold text-success mb-3"><i class="fa-solid fa-chart-line me-2"></i>2. مخططات ضبط الجودة (R-Charts)</h3>
+            <p class="text-muted small">تُستخدم لوحات التحكم بالإحصاء (Control Charts) لتتبع التباين والانحرافات المعيارية للعمليات مع مرور الوقت ومراقبة حد الضبط الأعلى (UCL) وحد الضبط الأدنى (LCL).</p>
+            <ul class="text-muted small ps-3">
+              <li>مراقبة ثبات تشتت العمليات.</li>
+              <li>التمتّع بتقييم مستمر للجودة عبر برمجيات مثل Minitab و R.</li>
+            </ul>
           </div>
         </div>
 
-        <div class="col-md-4">
+        <!-- Project 3: Ansari-Bradley Test -->
+        <div class="col-md-6">
           <div class="custom-card p-4">
-            <h3 class="h5 fw-bold mb-2">مخططات ضبط الجودة</h3>
-            <p class="text-muted small">مراقبة العمليات وتحليل الانحرافات المعيارية للبيانات باستمرار.</p>
+            <h3 class="h5 fw-bold text-info mb-3"><i class="fa-solid fa-square-root-variable me-2"></i>3. الاختبارات غير المعلمية (Ansari-Bradley)</h3>
+            <p class="text-muted small">يُعد اختبار **Ansari-Bradley** خياراً ممتازاً للمقارنة بين تشتت عينتين مستقلتين عندما لا تتوزع البيانات توزيعاً طبيعياً:</p>
+            
+            <pre class="bg-dark text-light p-2 rounded-3 dir-ltr text-start small" style="font-family: monospace;">
+# تنفيذ اختبار أنساري-برادلي في R
+group1 <- c(12, 15, 18, 11, 14)
+group2 <- c(22, 10, 29, 31, 19)
+
+ansari.test(group1, group2)
+            </pre>
           </div>
         </div>
 
@@ -73,7 +104,7 @@
     </div>
   </section>
 
-  <!-- الفوتر -->
+  <!-- Footer -->
   <footer class="bg-white border-top py-4 text-center mt-5">
     <div class="container">
       <p class="text-muted small mb-0">جميع الحقوق محفوظة © StatVision 2026</p>

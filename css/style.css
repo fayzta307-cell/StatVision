@@ -1,0 +1,158 @@
+/* ===================================================
+   StatVision - Main Stylesheet Design
+   =================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap');
+
+:root {
+  --primary-color: #2563EB;
+  --secondary-color: #06B6D4;
+  --bg-color: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --success-color: #10B981;
+  --text-main: #1E293B;
+  --text-muted: #64748B;
+  --border-color: #E2E8F0;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  direction: rtl;
+  text-align: right;
+  overflow-x: hidden;
+}
+
+/* Scroll Progress Bar */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to left, var(--primary-color), var(--secondary-color));
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.1s ease-out;
+}
+
+/* Navbar Tuning */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-weight: 800;
+  color: var(--primary-color) !important;
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  font-weight: 600;
+  color: var(--text-main) !important;
+  margin: 0 5px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover, 
+.nav-link.active {
+  color: var(--primary-color) !important;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 100px 0 60px 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+
+/* Cards System */
+.custom-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.custom-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.interactive-card {
+  cursor: pointer;
+}
+
+/* Section Headings */
+.section-title {
+  font-weight: 800;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  right: 0;
+  width: 50%;
+  height: 4px;
+  background: var(--secondary-color);
+  border-radius: 2px;
+}
+
+/* Quote Box */
+.quote-box {
+  border-right: 4px solid var(--primary-color);
+  background-color: #EFF6FF;
+  padding: 16px 20px;
+  border-radius: 0 12px 12px 0;
+  font-weight: 600;
+}
+
+/* Quiz UI */
+.quiz-container {
+  background: var(--card-bg);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  padding: 30px;
+}
+
+.quiz-option {
+  display: block;
+  width: 100%;
+  text-align: right;
+  padding: 14px 20px;
+  margin-bottom: 12px;
+  background-color: #F1F5F9;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.quiz-option:hover {
+  background-color: #E2E8F0;
+}

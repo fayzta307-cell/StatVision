@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StatVision | أساسيات علم الإحصاء والبيانات</title>
+  <title>StatVision | علم الإحصاء والرسومات البيانية</title>
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -22,9 +22,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="index.html">الرئيسية</a></li>
-          <li class="nav-item"><a class="nav-link" href="ai.html">الذكاء الاصطناعي</a></li>
-          <li class="nav-item"><a class="nav-link" href="projects.html">المشاريع</a></li>
+          <li class="nav-item"><a class="nav-link active" href="index.html">علم الإحصاء والرسومات</a></li>
+          <li class="nav-item"><a class="nav-link" href="ai.html">الذكاء الاصطناعي والبرامج</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">المشاريع والتطبيقات</a></li>
           <li class="nav-item"><a class="nav-link text-primary fw-bold" href="quiz.html">الاختبار النهائي</a></li>
         </ul>
       </div>
@@ -34,55 +34,198 @@
   <!-- Hero Section -->
   <section class="hero-section text-center">
     <div class="container">
-      <h1 class="hero-title mb-3">أساسيات علم الإحصاء والبيانات</h1>
-      <p class="text-muted mb-4">منصة تفاعلية تهدف لربط الإحصاء التطبيقي بالذكاء الاصطناعي والتحليل الرقمي</p>
-      <a href="#topics" class="btn btn-primary btn-lg rounded-pill px-4">استكشف المحاور <i class="fa-solid fa-arrow-down ms-2"></i></a>
+      <h1 class="hero-title mb-3">مرحبًا بك في StatVision</h1>
+      <p class="hero-subtitle mb-3">رحلة تفاعلية بين الإحصاء والذكاء الاصطناعي</p>
+      <p class="text-muted max-w-700 mx-auto mb-4">منصة تعليمية تفاعلية تهدف إلى تبسيط مفاهيم علم الإحصاء وإظهار دوره في بناء تقنيات الذكاء الاصطناعي.</p>
+      <a href="#statistic-basics" class="btn btn-primary btn-lg rounded-pill px-4">لنبدأ رحلتنا <i class="fa-solid fa-arrow-down ms-2"></i></a>
     </div>
   </section>
 
-  <!-- Topics Section -->
-  <section id="topics" class="py-5">
-    <div class="container py-3">
+  <!-- إحصائية اليوم -->
+  <section class="container my-4">
+    <div class="alert alert-info border-0 shadow-sm rounded-4 p-4 d-flex align-items-center">
+      <i class="fa-solid fa-lightbulb fs-2 me-3 text-primary"></i>
+      <div>
+        <h6 class="fw-bold mb-1">إحصائية اليوم</h6>
+        <p class="mb-0 text-muted small" id="daily-stat">يُقدَّر أن أكثر من 90% من البيانات الموجودة في العالم أُنشئت خلال السنوات الأخيرة.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- الجزء الأول: أساسيات الإحصاء -->
+  <section id="statistic-basics" class="py-5">
+    <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title">محاور المنصة</h2>
-        <p class="text-muted">نظرة عامة على الركائز الأساسية للمشروع</p>
+        <h2 class="section-title">الجزء الأول: علم الإحصاء</h2>
+        <p class="text-muted">تحويل المعلومات الخام إلى نتائج واضحة تساعد على اتخاذ القرارات</p>
+      </div>
+
+      <!-- ما هو الإحصاء ولماذا ندرسه -->
+      <div class="row g-4 mb-5">
+        <div class="col-md-6">
+          <div class="custom-card">
+            <h4 class="fw-bold text-primary mb-3"><i class="fa-solid fa-book-open me-2"></i>ما هو علم الإحصاء؟</h4>
+            <p class="text-muted">هو علم يهتم بجمع البيانات، وتنظيمها، وتحليلها، وتفسيرها بهدف تحويل المعلومات الخام إلى نتائج واضحة تساعد على فهم الظواهر واتخاذ القرارات المبنية على الأدلة.</p>
+            <p class="fw-bold text-dark small mb-0">يُستخدم في: الطب، الاقتصاد، الأعمال، التعليم، الهندسة، البيئة، والذكاء الاصطناعي.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="custom-card">
+            <h4 class="fw-bold text-primary mb-3"><i class="fa-solid fa-circle-question me-2"></i>لماذا ندرس الإحصاء؟</h4>
+            <p class="text-muted">بدون الإحصاء البيانات مجرد أرقام، لكن معه تتحول لفرص ومعرفة. يساعدنا على:</p>
+            <div class="row g-2 text-muted small">
+              <div class="col-6">✔ جمع البيانات بأسلوب صحيح</div>
+              <div class="col-6">✔ تنظيم وتحليل النتائج</div>
+              <div class="col-6">✔ اكتشاف الأنماط والاتجاهات</div>
+              <div class="col-6">✔ التنبؤ ودعم اتخاذ القرار</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- أقسام الإحصاء -->
+      <h3 class="h4 fw-bold mb-4 text-center">أقسام علم الإحصاء الرئيسية</h3>
+      <div class="row g-4 mb-5">
+        <div class="col-md-6">
+          <div class="custom-card border-start border-4 border-primary">
+            <h5 class="fw-bold text-dark">1. الإحصاء الوصفي (Descriptive)</h5>
+            <p class="text-muted small">يهتم بوصف البيانات الموجودة دون محاولة التعميم على مجتمع أكبر. يشمل: تنظيم البيانات، تلخيصها، عرضها بالجداول والرسومات، وحساب المتوسطات ومقاييس التشتت.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="custom-card border-start border-4 border-info">
+            <h5 class="fw-bold text-dark">2. الإحصاء الاستدلالي (Inferential)</h5>
+            <p class="text-muted small">يعتمد على دراسة عينة صغيرة ممثلة للمجتمع، واستخدام نتائجها للتوصل إلى استنتاجات وتعميمات عن المجتمع بأكمله (مثال: دراسة عينة من 500 طالب لتقدير رأي جميع طلاب الجامعة).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- مقاييس النزعة والتشتت والمفاهيم -->
+      <div class="row g-4 mb-5">
+        <div class="col-md-4">
+          <div class="custom-card">
+            <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-bullseye me-2"></i>مقاييس النزعة المركزية</h5>
+            <ul class="list-unstyled text-muted small lh-lg">
+              <li><strong>المتوسط الحسابي (Mean):</strong> مجموع القيم مقسومًا على عددها.</li>
+              <li><strong>الوسيط (Median):</strong> القيمة المنتصفة بعد الترتيب ولا يتأثر بالقيم المتطرفة.</li>
+              <li><strong>المنوال (Mode):</strong> القيمة الأكثر تكرارًا داخل البيانات.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="custom-card">
+            <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-arrows-left-right me-2"></i>مقاييس التشتت</h5>
+            <ul class="list-unstyled text-muted small lh-lg">
+              <li><strong>المدى (Range):</strong> الفرق بين أكبر وأصغر قيمة.</li>
+              <li><strong>التباين (Variance):</strong> يقيس مقدار اختلاف البيانات عن المتوسط.</li>
+              <li><strong>الانحراف المعياري (SD):</strong> المقياِس الأكثر استخدامًا لبيان مدى ابتعاد القيم عن المتوسط.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="custom-card">
+            <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-cubes me-2"></i>المفاهيم الأساسية</h5>
+            <ul class="list-unstyled text-muted small lh-lg">
+              <li><strong>المجتمع (Population):</strong> جميع العناصر محل الدراسة (مثلاً: كافة طلاب الجامعة).</li>
+              <li><strong>العينة (Sample):</strong> جزء من المجتمع يتم اختياره لتمثيله (مثلاً: 500 طالب).</li>
+              <li><strong>البيانات والمتغيرات:</strong> المعلومات والصفات التي تختلف بين الأفراد (العمر، الوزن، الدخل).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- الجزء الثاني: الرسومات البيانية -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">الجزء الثاني: الرسومات البيانية (Data Visualization)</h2>
+        <p class="text-muted">«اختيار الرسم البياني المناسب لا يقل أهمية عن تحليل البيانات نفسه»</p>
       </div>
 
       <div class="row g-4">
-        <!-- 1. الإحصاء والرسومات -->
-        <div class="col-md-4">
-          <div class="custom-card text-center">
-            <div class="mb-3 text-primary fs-1"><i class="fa-solid fa-chart-pie"></i></div>
-            <h3 class="h5 fw-bold mb-3">علم الإحصاء والرسومات</h3>
-            <p class="text-muted small">شرح المفاهيم الإحصائية الأساسية، مقاييس التشتت، تمثيل البيانات الديموغرافية ومخططات ضبط الجودة الإحصائية.</p>
+        <!-- المدرج التكراري -->
+        <div class="col-md-6 col-lg-4">
+          <div class="custom-card">
+            <div class="text-primary fs-3 mb-2"><i class="fa-solid fa-chart-simple"></i></div>
+            <h5 class="fw-bold">المدرج التكراري (Histogram)</h5>
+            <p class="text-muted small">لعرض توزيع البيانات الرقمية داخل فئات متتالية واكتشاف القيم الشاذة (Outliers).</p>
+            <span class="badge bg-light text-primary border">مثال: توزيع أعمار المرضى أو الدرجات</span>
           </div>
         </div>
 
-        <!-- 2. الذكاء الاصطناعي -->
-        <div class="col-md-4">
-          <div class="custom-card text-center">
-            <div class="mb-3 text-info fs-1"><i class="fa-solid fa-brain"></i></div>
-            <h3 class="h5 fw-bold mb-3">الذكاء الاصطناعي والبرامج</h3>
-            <p class="text-muted small">تطبيق لغة R وتحليل البيانات في Minitab، مع توظيف الذكاء الاصطناعي لتسريع بناء الخوارزميات وتفسير النتائج.</p>
-            <a href="ai.html" class="btn btn-outline-primary btn-sm rounded-pill mt-3">الانتقال للذكاء الاصطناعي</a>
+        <!-- مخطط الأعمدة -->
+        <div class="col-md-6 col-lg-4">
+          <div class="custom-card">
+            <div class="text-primary fs-3 mb-2"><i class="fa-solid fa-chart-column"></i></div>
+            <h5 class="fw-bold">مخطط الأعمدة (Bar Chart)</h5>
+            <p class="text-muted small">لمقارنة القيم والتكرارات بين فئات ومجموعات مختلفة بأعمدة منفصلة.</p>
+            <span class="badge bg-light text-primary border">مثال: عدد الموظفين في فروع المدن</span>
           </div>
         </div>
 
-        <!-- 3. المشاريع والاختبار -->
-        <div class="col-md-4">
-          <div class="custom-card text-center">
-            <div class="mb-3 text-success fs-1"><i class="fa-solid fa-diagram-project"></i></div>
-            <h3 class="h5 fw-bold mb-3">المشاريع والاختبارات</h3>
-            <p class="text-muted small">تطبيقات برمجية مخصصة بلغة R ومخططات ضبط الجودة مع اختبار تفاعلي لقياس حصيلتك العلمية.</p>
-            <a href="projects.html" class="btn btn-outline-primary btn-sm rounded-pill mt-3">استعراض المشاريع</a>
+        <!-- المخطط الدائري -->
+        <div class="col-md-6 col-lg-4">
+          <div class="custom-card">
+            <div class="text-primary fs-3 mb-2"><i class="fa-solid fa-chart-pie"></i></div>
+            <h5 class="fw-bold">المخطط الدائري (Pie Chart)</h5>
+            <p class="text-muted small">توضيح كيفية تقسيم الكل إلى أجزاء ونسب مئوية عندما تكون الفئات قليلة.</p>
+            <span class="badge bg-light text-primary border">مثال: المشروب المفضل لدى الطلاب</span>
+          </div>
+        </div>
+
+        <!-- الرسم الخطي -->
+        <div class="col-md-6 col-lg-6">
+          <div class="custom-card">
+            <div class="text-primary fs-3 mb-2"><i class="fa-solid fa-chart-line"></i></div>
+            <h5 class="fw-bold">الرسم الخطي (Line Chart)</h5>
+            <p class="text-muted small">عرض تغير البيانات مع مرور الزمن لمتابعة الاتجاهات وتوقع الأداء المستقبلية.</p>
+            <span class="badge bg-light text-primary border">مثال: مبيعات شركة أو زوار موقع خلال أشهر</span>
+          </div>
+        </div>
+
+        <!-- مخطط التشتت -->
+        <div class="col-md-6 col-lg-6">
+          <div class="custom-card">
+            <div class="text-primary fs-3 mb-2"><i class="fa-solid fa-circle-dot"></i></div>
+            <h5 class="fw-bold">مخطط التشتت (Scatter Plot)</h5>
+            <p class="text-muted small">عرض العلاقة والارتباط الموجب أو السالب بين متغيرين باستخدام نقاط موزعة.</p>
+            <span class="badge bg-light text-primary border">مثال: العلاقة بين ساعات المذاكرة ودرجات الطلاب</span>
           </div>
         </div>
       </div>
+
+      <!-- جدول اختيار الرسم -->
+      <div class="mt-5 p-4 custom-card">
+        <h5 class="fw-bold text-center mb-4">كيف أختار الرسم البياني المناسب؟</h5>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center align-middle mb-0">
+            <thead class="table-light">
+              <tr>
+                <th>إذا أردت...</th>
+                <th>استخدم...</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>مقارنة بين فئات</td><td><strong>مخطط الأعمدة</strong></td></tr>
+              <tr><td>عرض نسب مئوية</td><td><strong>المخطط الدائري</strong></td></tr>
+              <tr><td>متابعة التغير مع الزمن</td><td><strong>الرسم الخطي</strong></td></tr>
+              <tr><td>معرفة توزيع البيانات</td><td><strong>المدرج التكراري</strong></td></tr>
+              <tr><td>دراسة العلاقة بين متغيرين</td><td><strong>مخطط التشتت</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-white border-top py-4 text-center">
+  <footer class="bg-white border-top py-4 text-center mt-5">
     <div class="container">
       <p class="text-muted small mb-0">جميع الحقوق محفوظة © StatVision 2026</p>
     </div>
